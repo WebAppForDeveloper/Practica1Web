@@ -11,7 +11,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div><h1>Registro De Alumno</h1></div>
+        <div><h1>Registro De Adminstrador</h1></div>
            <section>
             <form action="../ProcesAlumnosS" method="POST">
                 <table>
@@ -27,9 +27,18 @@ and open the template in the editor.
                 </tr>
                 
                 <tr>
-                <td><a href="">¿Olvidaste tu contraseña?</a></td>
+                <td><label>Carrera</label></td>
+                <td><select name=Tipo value="Tipo De Usuario">
+                        <option name=uno value="1"> Administrador </option>
+                        <option name=dos value='2'> profesor </option>
+                        <option name=tres value='3'> Alumno </option>
+                     </select></td>
                 </tr>
                 
+                <tr>
+                <td><a href="">¿Olvidaste tu contraseña?</a></td>
+                </tr>
+                                
                 <tr>
                 <td><input type="submit" value="Entrar"</td>
                 </tr>

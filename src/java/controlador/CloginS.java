@@ -31,7 +31,8 @@ public class CloginS extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String a;
+        String tipo;
+        
         
     }
 
