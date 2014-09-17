@@ -12,6 +12,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.UsuarioAdminDAO;
+import modelo.UsuarioAlumnoDAO;
+import modelo.UsuarioDAO;
+import modelo.UsuarioProfesorDAO;
 
 /**
  *
@@ -31,7 +35,27 @@ public class CloginS extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String tipo;
+        int  tipo;
+        String master;
+        UsuarioDAO c = new UsuarioDAO();
+        
+        tipo = Integer.parseInt(request.getParameter("Tipo"));
+        
+        if( tipo == 1){
+            master = "admin";
+            UsuarioAdminDAO a = new UsuarioAdminDAO();
+        }
+        if( tipo == 2){
+            master = "tech";
+            UsuarioProfesorDAO p = new UsuarioProfesorDAO();
+        }
+        
+        if( tipo == 3){
+            master = "stud";
+            UsuarioAlumnoDAO al = new UsuarioAlumnoDAO();
+            
+        }
+        
         
         
     }
