@@ -147,6 +147,27 @@ public class UsuarioAdminDAO {
         
         
     }
+    
+    public boolean verificarUsuario(String user,String pass){
+		try {
+                    PreparedStatement ps= conexionDB.prepareStatement("Select * from admin where admin.nombre=? and admin.claveUsuario=?");
+                    ps.setString(1, user);
+                    ps.setString(2, pass);
+                    ResultSet r = ps.executeQuery();
+            
+			if(r.next()){
+				//System.out.println(r.getObject(1));
+                                //System.out.println(r.getObject(2));
+				return true;
+			}
+			return false;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+    
     /*
     public Alumno load(Alumno alumno)throws SQLException{
         PreparedStatement ps = null;

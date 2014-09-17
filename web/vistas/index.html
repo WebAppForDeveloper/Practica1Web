@@ -9,11 +9,12 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../js/jquery/jquery-2.1.1.js"></script>
     </head>
     <body>
         <div><h1>Registro De Adminstrador</h1></div>
            <section>
-            <form action="../CloginS" method="POST">
+               <form id="fo">
                 <table>
                     
                 <tr>  
@@ -35,9 +36,7 @@ and open the template in the editor.
                      </select></td>
                 </tr>
                 
-                <tr>
-                <td><a href="">¿Olvidaste tu contraseña?</a></td>
-                </tr>
+              
                                 
                 <tr>
                 <td><input type="submit" value="Entrar"</td>
@@ -45,6 +44,31 @@ and open the template in the editor.
                 
                 
                 </table>
+                <script>
+                    $('document').ready(function (){
+                        
+                      
+                        $('#fo').on('submit',function (e){
+                           
+                            e.preventDefault();
+                              $.ajax({
+                                    type: "post",
+                                    url: "../CloginS",
+                                    data: $('#fo').serialize(),
+                                    success: function (data) {
+                                        console.log(data +"oooooorecibidooooooo");
+                                        
+                                    },
+                                    error: function (jqXHR, estado, error) {
+                                        console.log(estado);
+                                        console.log(error);
+                        
+                                    }
+                                    
+                              });
+                        });
+                });
+                </script>
             </form>
         </section>
     </body>

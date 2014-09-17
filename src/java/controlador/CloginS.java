@@ -37,8 +37,13 @@ public class CloginS extends HttpServlet {
         
         int  tipo;
         String master;
-        UsuarioDAO c = new UsuarioDAO();
+        tipo = Integer.parseInt(request.getParameter("Tipo"));
         
+        
+        response.setContentType("text/plain");
+	response.setCharacterEncoding("UTF-8");
+	response.getWriter().write("si me enlace");
+       
         tipo = Integer.parseInt(request.getParameter("Tipo"));
         
         if( tipo == 1){
