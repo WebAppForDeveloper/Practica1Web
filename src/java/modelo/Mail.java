@@ -33,17 +33,17 @@ try {
     props.setProperty("mail.smtp.host", "smtp.gmail.com");//el segundo parametro se cambia deacuerdo a el smtp
     props.setProperty("mail.smtp.starttls.enable", "true");
     props.setProperty("mail.smtp.port", "587");
-    props.setProperty("mail.smtp.user", " revianmail@gmail.com");
+    props.setProperty("mail.smtp.user", "pruebasweb99@gmail.com");
     props.setProperty("mail.smtp.auth", "true");
-
+    props.setProperty("mail.smtp.ssl.trust", "smtpserver");
     // Inicializar la Sesion la sesion
     Session session = Session.getDefaultInstance(props);
 
     // el mensaje
     MimeMessage message = new MimeMessage(session);
-    message.setFrom(new InternetAddress(" javierhm810@gmail.com"));
+    message.setFrom(new InternetAddress("pruebasweb99@gmail.com"));
     message.addRecipient(Message.RecipientType.TO,new InternetAddress(correoDestinatario));
-    message.addRecipient(Message.RecipientType.BCC,new InternetAddress(" revianmail@gmail.com"));
+    message.addRecipient(Message.RecipientType.BCC,new InternetAddress("pruebasweb99@gmail.com"));
     //CC A quien s ele envia una copia Oculta
     //BCC A quien s ele envia una copia Oculta
 
@@ -51,7 +51,7 @@ try {
     message.setText(textoCorreo);
     // envio MEnsaje.
     Transport trasporte = session.getTransport("smtp");
-    trasporte.connect("revianmail@gmail.com","serafanprice2#");
+    trasporte.connect("pruebasweb99@gmail.com","pruebasweb");
     trasporte.sendMessage(message, message.getAllRecipients());
     // Cierre.
     trasporte.close();
@@ -61,5 +61,14 @@ try {
     
   }
     
-
+public static void main (String args[]){
+                Mail m = new Mail();
+                
+        try {
+            System.out.println("Ejecuntando");
+            m.enviarMail("marian.ayo@hotmail.com", "hi", "hi");
+        } catch (MessagingException ex) {
+            Logger.getLogger(Mail.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

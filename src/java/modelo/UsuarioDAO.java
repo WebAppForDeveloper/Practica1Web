@@ -26,10 +26,10 @@ public class UsuarioDAO {
     private static final String SQL_INSERT = "insert into usuarioo(nombre,aPaterno,aMaterno,email,nombreUsuario,claveUsuario,tipoUsuario) values(?,?,?,?,?,?,?)";
     private static final String SQL_UPDATE = "update usuarioo set nombre=?,aPeterno=?,aMaterno=?,email=?,nombreUsuario=?,tipoUsuario=? where idUsuario=?";
     private static final String SQL_DELETE = "delete from usuarioo where idUsuario=?";
-    private static final String SQL_SELECT ="select * from usuarioo where idUsuario=?";
+    private static final String SQL_SELECT ="select * from alumno";
     private static final String SQL_SELECT_ALL ="select * from usuarioo";
     private static final String SQL_GRAFICAR ="{call spDatosGrafica()}";
-    
+    private static final String SQL_CONTRASEÑA="select email from alumno where Matricula=?";
     
     
     private String url = "jdbc:mysql://localhost:3306/mydb";
@@ -232,5 +232,23 @@ public class UsuarioDAO {
         
     }
      */
-     
+    public String recuperar (long numero) throws SQLException{
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        try {
+            ps=conexionDB.prepareStatement(SQL_CONTRASEÑA);
+            ps.setLong(1,numero);
+            //ps=conexionDB.prepareStatement(SQL_SELECT);
+            rs=ps.executeQuery();
+            if(rs.next()){
+            return(rs.getString(1));
+            }
+            else{
+            return null;
+            }
+        } finally{
+            if(ps!=null)ps.close();
+            if(conexionDB!=null)conexionDB.close();
+        }
+    }
 }
