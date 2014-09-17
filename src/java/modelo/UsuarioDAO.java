@@ -29,7 +29,7 @@ public class UsuarioDAO {
     private static final String SQL_SELECT ="select * from alumno";
     private static final String SQL_SELECT_ALL ="select * from usuarioo";
     private static final String SQL_GRAFICAR ="{call spDatosGrafica()}";
-    private static final String SQL_CONTRASEÑA="select email from alumno where Matricula=?";
+    private static final String SQL_CONTRASEÑA="select * from alumno where Matricula=?";
     
     
     private String url = "jdbc:mysql://localhost:3306/mydb";
@@ -147,7 +147,7 @@ public class UsuarioDAO {
         
         
     }
-    /*
+    
     public Alumno load(Alumno alumno)throws SQLException{
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -176,23 +176,23 @@ public class UsuarioDAO {
         
         
     }
-/*
+
     public List obtenerResultados(ResultSet rs)throws SQLException{
         
        List res = new LinkedList();
        while(rs.next()){
            Alumno user = new Alumno();
-           user.setId(rs.getInt("idUsuario"));
+           user.setMatricula(rs.getInt("Matricula"));
            user.setNombre(rs.getString("nombre"));
            
            //System.out.println(rs.getString("nombre"));
            
-           user.setaPaterno(rs.getString("aPaterno"));
-           user.setaMaterno(rs.getString("aMaterno"));
+           user.setPaternoAlumno(rs.getString("paternoAlumno"));
+           user.setMaternoAlumno(rs.getString("maternoAlumno"));
            user.setEmail(rs.getString("email"));
-           user.setUsuario(rs.getString("nombreUsuario"));
-           user.setClave(rs.getString("claveUsuario"));
-           user.setTipoUsuario(rs.getString("tipoUsuario"));
+           //user.setUsuario(rs.getString("nombreUsuario"));
+           //user.setClave(rs.getString("claveUsuario"));
+          // user.setEmail(rs.getString("tipoUsuario"));
            
            res.add(user);
            
@@ -201,51 +201,23 @@ public class UsuarioDAO {
         return res;
     }
     
-    
-     public List loadAll()throws SQLException{
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        
-        try{
-            ps= conexionDB.prepareStatement(SQL_SELECT_ALL);
- 
-            rs = ps.executeQuery();
-            //ps.setString(7, usuario.getTipoUsuario());
-            List resultados = obtenerResultados(rs);
-            if(resultados.size() > 0)
-            {
-                //System.out.println("los resultados son"+resultados.size());
-                return resultados;//resultados
-            }
-            else {
-                return null;
-            }
-            //ps.executeUpdate();
-            
-        }
-        finally{
-            if(rs != null) rs.close();
-            if(ps != null) ps.close();
-           // if(conexionDB != null) conexionDB.close();           
-        }
-        
-        
-    }
-     */
-    public String recuperar (long numero) throws SQLException{
+    public Alumno recuperar (long numero) throws SQLException{
         PreparedStatement ps=null;
         ResultSet rs=null;
         try {
             ps=conexionDB.prepareStatement(SQL_CONTRASEÑA);
             ps.setLong(1,numero);
+            Alumno a = new Alumno();
             //ps=conexionDB.prepareStatement(SQL_SELECT);
             rs=ps.executeQuery();
-            if(rs.next()){
-            return(rs.getString(1));
+            List resultados=obtenerResultados(rs);
+            if(resultados.size()>0){
+            return(Alumno) (resultados.get(0));
             }
             else{
             return null;
             }
+          
         } finally{
             if(ps!=null)ps.close();
             if(conexionDB!=null)conexionDB.close();

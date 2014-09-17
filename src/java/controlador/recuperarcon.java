@@ -11,12 +11,14 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Alumno;
+import modelo.Mail;
 import modelo.UsuarioDAO;
 
 /**
@@ -36,20 +38,30 @@ public class recuperarcon extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException, SQLException, MessagingException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
             String email;
-            
+            Alumno a =new Alumno();
             UsuarioDAO udao=new UsuarioDAO();
-            
-            email=udao.recuperar(Long.valueOf(request.getParameter("boleta")));
-            if(email==null){
-            
+            //udao.recuperar(12);
+            a=udao.recuperar(Long.valueOf(request.getParameter("boleta")));
+            if(a!=null){
+            System.out.println(a);
+                Mail enviarmail =new Mail();
+                String asunto="Recuperación de Contraseña";
+                String texto="Hola";
+                texto+=a.getNombre();
+                texto+=a.getPaternoAlumno();
+                texto+=a.getPaternoAlumno();
+                texto+="tu contraseña es:123";
+                enviarmail.enviarMail(a.getEmail(), asunto, texto);
+            }
+            else{
+            System.out.println("null");
             }
             
-            System.out.println(email);
         }
     }
 
@@ -69,6 +81,8 @@ public class recuperarcon extends HttpServlet {
             processRequest(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(recuperarcon.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MessagingException ex) {
+            Logger.getLogger(recuperarcon.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -86,6 +100,8 @@ public class recuperarcon extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
+            Logger.getLogger(recuperarcon.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MessagingException ex) {
             Logger.getLogger(recuperarcon.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
