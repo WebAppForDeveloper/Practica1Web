@@ -38,7 +38,7 @@ public class CloginS extends HttpServlet {
         int  tipo;
         String master;
         tipo = Integer.parseInt(request.getParameter("Tipo"));
-        
+       
         
         response.setContentType("text/plain");
 	response.setCharacterEncoding("UTF-8");
