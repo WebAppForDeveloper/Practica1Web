@@ -23,11 +23,11 @@ import java.util.List;
  */
 public class UsuarioAlumnoDAO {
     
-    private static final String SQL_INSERT = "insert into usuarioo(nombre,aPaterno,aMaterno,email,nombreUsuario,claveUsuario,tipoUsuario) values(?,?,?,?,?,?,?)";
-    private static final String SQL_UPDATE = "update usuarioo set nombre=?,aPeterno=?,aMaterno=?,email=?,nombreUsuario=?,tipoUsuario=? where idUsuario=?";
-    private static final String SQL_DELETE = "delete from usuarioo where idUsuario=?";
-    private static final String SQL_SELECT ="select * from usuarioo where idUsuario=?";
-    private static final String SQL_SELECT_ALL ="select * from usuarioo";
+    private static final String SQL_INSERT = "insert into alumno(matricula,nombre,paternoAlumno,maternoAlumno,fechaNacimiento,calle,colonia,numero,codigoPostal,sexo,email) values(?,?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_UPDATE = "update alumno set matricula=?,nombre=?,paternoAlumno=?,maternoAlumno=?,fechaNacimiento=?,calle=?,colonia=?,numero=?,codigoPostal=?,sexo=?,email=? where idUsuario=?";
+    private static final String SQL_DELETE = "delete from alumno where matricula=?";
+    private static final String SQL_SELECT ="select * from alumno where matricula=?";
+    private static final String SQL_SELECT_ALL ="select * from alumno";
     private static final String SQL_GRAFICAR ="{call spDatosGrafica()}";
     
     
@@ -81,7 +81,7 @@ public class UsuarioAlumnoDAO {
             ps.setString(2, alumno.getNombre());
             ps.setString(3, alumno.getPaternoAlumno());
             ps.setString(4, alumno.getMaternoAlumno());
-            ps.setDate(5, (Date) alumno.getFechaNacimineto());
+            ps.setDate(5, (Date) alumno.getFechaNacimiento());
             ps.setString(6, alumno.getCalle());
             ps.setString(7, alumno.getColonia());
             ps.setInt(8, alumno.getNumero());
@@ -111,7 +111,7 @@ public class UsuarioAlumnoDAO {
             ps.setString(2, alumno.getNombre());
             ps.setString(3, alumno.getPaternoAlumno());
             ps.setString(4, alumno.getMaternoAlumno());
-            ps.setDate(5, (Date) alumno.getFechaNacimineto());
+            ps.setDate(5, (Date) alumno.getFechaNacimiento());
             ps.setString(6, alumno.getCalle());
             ps.setString(7, alumno.getColonia());
             ps.setInt(8, alumno.getNumero());
@@ -206,7 +206,7 @@ public class UsuarioAlumnoDAO {
            user.setNombre(rs.getString("nombre"));
            user.setPaternoAlumno(rs.getString("paternoAlumno"));
            user.setMaternoAlumno(rs.getString("maternoAlumno"));
-           user.setFechaNacimineto(rs.getDate("fechaNacimiento"));
+           user.setFechaNacimiento(rs.getDate("fechaNacimiento"));
            user.setCalle(rs.getString("calle"));
            user.setColonia(rs.getString("colonia"));
            user.setNumero(rs.getInt("numero"));

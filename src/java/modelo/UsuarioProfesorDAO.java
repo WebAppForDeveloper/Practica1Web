@@ -23,11 +23,11 @@ import java.util.List;
  */
 public class UsuarioProfesorDAO {
     
-    private static final String SQL_INSERT = "insert into usuarioo(nombre,aPaterno,aMaterno,email,nombreUsuario,claveUsuario,tipoUsuario) values(?,?,?,?,?,?,?)";
-    private static final String SQL_UPDATE = "update usuarioo set nombre=?,aPeterno=?,aMaterno=?,email=?,nombreUsuario=?,tipoUsuario=? where idUsuario=?";
-    private static final String SQL_DELETE = "delete from usuarioo where idUsuario=?";
-    private static final String SQL_SELECT ="select * from usuarioo where idUsuario=?";
-    private static final String SQL_SELECT_ALL ="select * from usuarioo";
+    private static final String SQL_INSERT = "insert into profesor(matriculaProfesor,nombre,paterno,materno,fechaNacimiento,calle,colonia,sexo,email) values(?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_UPDATE = "update profesor set matriculaProfesor=?,nombre=?,paterno=?,materno=?,fechaNacimiento=?,calle=?,colonia=?,sexo=?,email=? where matriculaProfesor=?";
+    private static final String SQL_DELETE = "delete from profesor where matriculaProfesor=?";
+    private static final String SQL_SELECT ="select * from profesor where matriculaProfesor=?";
+    private static final String SQL_SELECT_ALL ="select * from profesor";
     private static final String SQL_GRAFICAR ="{call spDatosGrafica()}";
     
     
@@ -72,22 +72,20 @@ public class UsuarioProfesorDAO {
 	}
     
     //private Connection con = null;
-    public void create(Alumno alumno)throws SQLException{
+    public void create(Profesor u)throws SQLException{
         PreparedStatement ps = null;
         
         try{
             ps= conexionDB.prepareStatement(SQL_INSERT);
-            ps.setLong(1, alumno.getMatricula());
-            ps.setString(2, alumno.getNombre());
-            ps.setString(3, alumno.getPaternoAlumno());
-            ps.setString(4, alumno.getMaternoAlumno());
-            ps.setDate(5, (Date) alumno.getFechaNacimineto());
-            ps.setString(6, alumno.getCalle());
-            ps.setString(7, alumno.getColonia());
-            ps.setInt(8, alumno.getNumero());
-            ps.setString(9, alumno.getCodigoPostal());
-            ps.setString(10, alumno.getSexo());
-            ps.setString(11, alumno.getEmail());
+            ps.setLong(1, u.getMatriculaProfesor());
+            ps.setString(2, u.getNombre());
+            ps.setString(3, u.getPaterno());
+            ps.setString(4, u.getMaterno());
+            ps.setDate(5, (Date) u.getFechaNacimineto());
+            ps.setString(6, u.getCalle());
+            ps.setString(7, u.getColonia());
+            ps.setString(10, u.getSexo());
+            ps.setString(11, u.getEmail());
             //ps.setInt(8,1);
             
             ps.executeUpdate();
@@ -102,22 +100,20 @@ public class UsuarioProfesorDAO {
     }
     
   
-    public void update(Alumno alumno)throws SQLException{
+    public void update(Profesor u)throws SQLException{
         PreparedStatement ps = null;
         
         try{
             ps= conexionDB.prepareStatement(SQL_INSERT);
-             ps.setLong(1, alumno.getMatricula());
-            ps.setString(2, alumno.getNombre());
-            ps.setString(3, alumno.getPaternoAlumno());
-            ps.setString(4, alumno.getMaternoAlumno());
-            ps.setDate(5, (Date) alumno.getFechaNacimineto());
-            ps.setString(6, alumno.getCalle());
-            ps.setString(7, alumno.getColonia());
-            ps.setInt(8, alumno.getNumero());
-            ps.setString(9, alumno.getCodigoPostal());
-            ps.setString(10, alumno.getSexo());
-            ps.setString(11, alumno.getEmail());
+             ps.setLong(1, u.getMatriculaProfesor());
+            ps.setString(2, u.getNombre());
+            ps.setString(3, u.getPaterno());
+            ps.setString(4, u.getMaterno());
+            ps.setDate(5, (Date) u.getFechaNacimineto());
+            ps.setString(6, u.getCalle());
+            ps.setString(7, u.getColonia());
+            ps.setString(10, u.getSexo());
+            ps.setString(11, u.getEmail());
             
             ps.executeUpdate();
             
@@ -129,12 +125,12 @@ public class UsuarioProfesorDAO {
         
         
     }
-    public void delet(Alumno alumno)throws SQLException{
+    public void delet(Profesor u)throws SQLException{
         PreparedStatement ps = null;
         
         try{
             ps= conexionDB.prepareStatement(SQL_DELETE);
-            ps.setLong(1, alumno.getMatricula());
+            ps.setLong(1, u.getMatriculaProfesor());
             //ps.setString(7, usuario.getTipoUsuario());
             
             ps.executeUpdate();

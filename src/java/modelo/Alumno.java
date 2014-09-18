@@ -20,7 +20,7 @@ public class Alumno {
     private String nombre;
     private String paternoAlumno;
     private String maternoAlumno;
-    private Date fechaNacimineto;
+    private Date fechaNacimiento;
     private String calle;
     private String colonia;
     private int numero;
@@ -49,8 +49,8 @@ public class Alumno {
         return maternoAlumno;
     }
 
-    public Date getFechaNacimineto() {
-        return fechaNacimineto;
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
     public String getCalle() {
@@ -98,8 +98,8 @@ public class Alumno {
         this.maternoAlumno = maternoAlumno;
     }
 
-    public void setFechaNacimineto(Date fechaNacimineto) {
-        this.fechaNacimineto = fechaNacimineto;
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public void setCalle(String calle) {
@@ -128,7 +128,11 @@ public class Alumno {
     
     @Override
     public String toString() {
-        return "Alumno{" + "matricula=" + matricula + ", nombre=" + nombre + ", paternoAlumno=" + paternoAlumno + ", maternoAlumno=" + maternoAlumno + ", fechaNacimineto=" + fechaNacimineto + ", calle=" + calle + ", colonia=" + colonia + ", numero=" + numero + ", codigoPostal=" + codigoPostal + ", sexo=" + sexo + ", email=" + email + '}';
+        return "Alumno{" + "matricula=" + matricula + ", nombre=" + nombre + ", paternoAlumno=" + paternoAlumno + ", maternoAlumno=" + maternoAlumno + ", fechaNacimineto=" + fechaNacimiento + ", calle=" + calle + ", colonia=" + colonia + ", numero=" + numero + ", codigoPostal=" + codigoPostal + ", sexo=" + sexo + ", email=" + email + '}';
+    }
+
+    public void setFechaNacimineto(String parameter) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
