@@ -80,7 +80,7 @@ public class UsuarioDAO {
             ps.setString(2, alumno.getNombre());
             ps.setString(3, alumno.getPaternoAlumno());
             ps.setString(4, alumno.getMaternoAlumno());
-            ps.setDate(5, (Date) alumno.getFechaNacimineto());
+            ps.setDate(5, (Date) alumno.getFechaNacimiento());
             ps.setString(6, alumno.getCalle());
             ps.setString(7, alumno.getColonia());
             ps.setInt(8, alumno.getNumero());
@@ -112,7 +112,7 @@ public class UsuarioDAO {
             ps.setString(2, alumno.getNombre());
             ps.setString(3, alumno.getPaternoAlumno());
             ps.setString(4, alumno.getMaternoAlumno());
-            ps.setDate(5, (Date) alumno.getFechaNacimineto());
+            ps.setDate(5, (Date) alumno.getFechaNacimiento());
             ps.setString(6, alumno.getCalle());
             ps.setString(7, alumno.getColonia());
             ps.setInt(8, alumno.getNumero());
