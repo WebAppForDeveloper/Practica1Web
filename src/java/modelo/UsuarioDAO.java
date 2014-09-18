@@ -31,7 +31,6 @@ public class UsuarioDAO {
     private static final String SQL_GRAFICAR ="{call spDatosGrafica()}";
     private static final String SQL_CONTRASEÑA="select * from alumno where Matricula=?";
     
-    
     private String url = "jdbc:mysql://localhost:3306/mydb";
 	private String driver = "com.mysql.jdbc.Driver";
 	private String usuario = "root";

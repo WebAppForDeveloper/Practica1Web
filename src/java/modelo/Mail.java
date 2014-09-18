@@ -34,8 +34,10 @@ try {
     props.setProperty("mail.smtp.starttls.enable", "true");
     props.setProperty("mail.smtp.port", "587");
     props.setProperty("mail.smtp.user", "pruebasweb99@gmail.com");
-    props.setProperty("mail.smtp.auth", "true");
-    props.setProperty("mail.smtp.ssl.trust", "smtpserver");
+    props.setProperty("mail.smtp.ssl.trust", "smtp.gmail.com"); 
+   
+    //props.setProperty("mail.smtp.auth", "true");
+   // props.setProperty("mail.smtp.ssl.trust", "smtpserver");
     // Inicializar la Sesion la sesion
     Session session = Session.getDefaultInstance(props);
 
@@ -61,7 +63,7 @@ try {
     
   }
     
-public static void main (String args[]){
+/*public static void main (String args[]){
                 Mail m = new Mail();
                 
         try {
@@ -70,5 +72,5 @@ public static void main (String args[]){
         } catch (MessagingException ex) {
             Logger.getLogger(Mail.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
 }

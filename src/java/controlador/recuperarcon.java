@@ -55,11 +55,22 @@ public class recuperarcon extends HttpServlet {
                 texto+=a.getNombre();
                 texto+=a.getPaternoAlumno();
                 texto+=a.getPaternoAlumno();
-                texto+="tu contraseña es:123";
-                enviarmail.enviarMail(a.getEmail(), asunto, texto);
+                texto+="tu contraseña es:";
+                texto+=a.getNombre();
+                enviarmail.enviarMail(a.getEmail(),asunto, texto);
             }
             else{
             System.out.println("null");
+            
+            Mail enviarmail =new Mail();
+                String asunto="Recuperación de Contraseña";
+                String texto="Hola";
+                texto+=a.getNombre();
+                texto+=a.getPaternoAlumno();
+                texto+=a.getPaternoAlumno();
+                texto+="tu contraseña es:";
+                texto+=a.getNombre();
+                enviarmail.enviarMail(a.getEmail(),asunto, texto);
             }
             
         }
