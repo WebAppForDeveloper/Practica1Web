@@ -33,13 +33,13 @@ and open the template in the editor.
     
     <script>
         $('document').ready(function (){
-                        $('#forms').on('submit',function (e){
+                        $('#formulario').on('submit',function (e){
                            
                               e.preventDefault();
                               $.ajax({
                                     type: "post",
                                     url: "../recuperarcon",
-                                    data: $('#forms').serialize(),
+                                    data: $('#formulario').serialize(),
                                     success: function (data) {
                                         alert("Se le ha enviado un correro ");
                                     },

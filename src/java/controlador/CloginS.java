@@ -68,7 +68,7 @@ public class CloginS extends HttpServlet {
             UsuarioAlumnoDAO al = new UsuarioAlumnoDAO();
             
             if(al.verificarUsuario(matricula, contraseña)){
-            
+                    //System.out.println(al.verificarUsuario(matricula, contraseña )+"VVVVVVVVVVVV");
                     response.setContentType("text/plain");
                     response.setCharacterEncoding("UTF-8");
                     response.getWriter().write(master);
@@ -79,7 +79,8 @@ public class CloginS extends HttpServlet {
         
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

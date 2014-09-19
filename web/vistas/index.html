@@ -47,20 +47,20 @@ and open the template in the editor.
                    <input type="submit" value="Entrar" id="enviar">
                 <script>
                     $('document').ready(function (){
-                        $('#fo').on('submit',function (e){
+                        $('#formulario').on('submit',function (e){
                            
                               e.preventDefault();
                               $.ajax({
                                     type: "post",
                                     url: "../CloginS",
-                                    data: $('#fo').serialize(),
+                                    data: $('#formulario').serialize(),
                                     success: function (data) {
-                                        var data;
+                                        //var data;
                                         if (data == '1'){
                                             $(location).attr('href',"ReAdmin.html");
                                         }
                                         
-                                        if (data ==  '2'){
+                                        if (data == '2'){
                                             $(location).attr('href',"ReProfesor.html");
                                         }
                                         
@@ -71,11 +71,6 @@ and open the template in the editor.
                                         
                                         
                                         
-                                    },
-                                    error: function (jqXHR, estado, error) {
-                                        console.log(estado);
-                                        console.log(error);
-                        
                                     }
                                     
                               });
