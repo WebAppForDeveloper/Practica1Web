@@ -57,8 +57,8 @@ public class servletAlumno extends HttpServlet {
             alumno.setCalle(request.getParameter("calle"));
             alumno.setColonia(request.getParameter("colonia"));
             alumno.setNumero(Integer.parseInt(request.getParameter("numero")));
-            System.out.println(request.getParameter("tipo"));
             alumno.setSexo(request.getParameter("tipo"));
+            alumno.setCodigoPostal(request.getParameter("cp"));
             alumno.setEmail(request.getParameter("email"));
             alumno.setCarrera(Integer.parseInt(request.getParameter("carrera")));
             //alumno.setEmail(request.getParameter("email"));

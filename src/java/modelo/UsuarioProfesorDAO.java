@@ -201,7 +201,7 @@ public class UsuarioProfesorDAO {
            user.setNombre(rs.getString("nombre"));
            user.setPaterno(rs.getString("paterno"));
            user.setMaterno(rs.getString("materno"));
-           user.setFechaNacimiento(rs.getString("fechaNacimiento"));
+           user.setFechaNacimineto(rs.getString("fechaNacimiento"));
            user.setCalle(rs.getString("calle"));
            user.setColonia(rs.getString("colonia"));
            user.setSexo(rs.getString("sexo"));

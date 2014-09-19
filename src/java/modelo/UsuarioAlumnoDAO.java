@@ -36,9 +36,19 @@ public class UsuarioAlumnoDAO {
             + ",?"
             + ",?,"
             + "?)";
-    private static final String SQL_UPDATE = "update alumno set matricula=?,nombre=?,paternoAlumno=?,maternoAlumno=?,fechaNacimiento=?,calle=?,colonia=?,numero=?,codigoPostal=?,sexo=?,email=? where idUsuario=?";
-    private static final String SQL_DELETE = "delete from alumno where matricula=?";
-    private static final String SQL_SELECT ="select * from alumno where matricula=?";
+    private static final String SQL_UPDATE = "update alumno set nombre=?,paternoAlumno=?,"
+            + "maternoAlumno=?,"
+            + "fechaNacimiento=?,"
+            + "calle=?,"
+            + "colonia=?"
+            + ",numero=?,"
+            + "codigoPostal=?,"
+            + "sexo=?,"
+            + "email=? "
+            + "where Matricula=?";
+    
+    private static final String SQL_DELETE = "delete from alumno where Matricula=?";
+    private static final String SQL_SELECT ="select * from alumno where Matricula=?";
     private static final String SQL_SELECT_ALL ="select * from alumno";
     private static final String SQL_GRAFICAR ="{call spDatosGrafica()}";
     
@@ -118,19 +128,19 @@ public class UsuarioAlumnoDAO {
         PreparedStatement ps = null;
         
         try{
-            ps= conexionDB.prepareStatement(SQL_INSERT);
-             ps.setLong(1, alumno.getMatricula());
-            ps.setString(2, alumno.getNombre());
-            ps.setString(3, alumno.getPaternoAlumno());
-            ps.setString(4, alumno.getMaternoAlumno());
-            ps.setString(5, alumno.getFechaNacimiento());
-            ps.setString(6, alumno.getCalle());
-            ps.setString(7, alumno.getColonia());
-            ps.setInt(8, alumno.getNumero());
-            ps.setString(9, alumno.getCodigoPostal());
-            ps.setString(10, alumno.getSexo());
-            ps.setString(11, alumno.getEmail());
-            
+            ps= conexionDB.prepareStatement(SQL_UPDATE);
+             
+            ps.setString(1, alumno.getNombre());
+            ps.setString(2, alumno.getPaternoAlumno());
+            ps.setString(3, alumno.getMaternoAlumno());
+            ps.setString(4, alumno.getFechaNacimiento());
+            ps.setString(5, alumno.getCalle());
+            ps.setString(6, alumno.getColonia());
+            ps.setInt(7, alumno.getNumero());
+            ps.setString(8, alumno.getCodigoPostal());
+            ps.setString(9, alumno.getSexo());
+            ps.setString(10, alumno.getEmail());
+            ps.setLong(11, alumno.getMatricula());
             ps.executeUpdate();
             
         }

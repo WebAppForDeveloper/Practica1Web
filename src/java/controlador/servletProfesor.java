@@ -11,11 +11,13 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Mail;
 import modelo.Profesor;
 import modelo.UsuarioProfesorDAO;
 
@@ -36,7 +38,7 @@ public class servletProfesor extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException, SQLException, MessagingException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -55,6 +57,14 @@ public class servletProfesor extends HttpServlet {
             
             UsuarioProfesorDAO udao= new UsuarioProfesorDAO();
             udao.create(u);
+             Mail mail = new Mail();
+            String asunto="Bienvenido al sistema";
+                String texto="Hola";
+                texto+=u.getNombre();
+                texto+=u.getPaterno();
+                texto+="tu contraseña es:";
+                texto+=u.getNombre();
+                mail.enviarMail(u.getEmail(),asunto, texto);
             response.sendRedirect("/Practica1/index.html");
         }
     }
@@ -75,6 +85,8 @@ public class servletProfesor extends HttpServlet {
             processRequest(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(servletProfesor.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MessagingException ex) {
+            Logger.getLogger(servletProfesor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -92,6 +104,8 @@ public class servletProfesor extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
+            Logger.getLogger(servletProfesor.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MessagingException ex) {
             Logger.getLogger(servletProfesor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

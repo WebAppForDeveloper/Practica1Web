@@ -52,16 +52,16 @@ public class servletActualizarAlumno extends HttpServlet {
             pagina +="<title>actualizar</title>";            
             pagina +="</head>";
             pagina +="<body>";
-            pagina+="<form action=\"Actualizar\" method=\"get\" >" + " <fieldset>"; 
+            pagina+="<form action=\"serhaceupdateusuario\" method=\"get\" >" + " <fieldset>"; 
             pagina+="<legend>Datos Usuario</legend>";
             pagina+="matricula</br>"+a.getMatricula()+" <input type=\"hidden\" name=\"matricula\""+"value=\""+a.getMatricula()+"\""+">";
             pagina+="<br/>";
             pagina+="Nombre <br/>";
             
             pagina+= " <input type=\"text\" name=\"nombre\""+"value=\""+a.getNombre()+"\""+"/>" +"<br/>";
-            pagina+="Apallido Paterno <br/>\n" + "<input type=\"text\" name=\"paternoAlumno\""+"value=\""+a.getPaternoAlumno()+"\""+"/>" + "<br/>";
-            pagina+="Apellido Materno <br/>\n" +"<input type=\"text\" name=\"paternoAlumno\""+"value=\""+a.getMaternoAlumno()+"\""+"/>" + "<br/>";
-            
+            pagina+="Apallido Paterno <br/>\n" + "<input type=\"text\" name=\"paterno\""+"value=\""+a.getPaternoAlumno()+"\""+"/>" + "<br/>";
+            pagina+="Apellido Materno <br/>\n" +"<input type=\"text\" name=\"materno\""+"value=\""+a.getMaternoAlumno()+"\""+"/>" + "<br/>";
+            pagina+="Fecha de Nacimiento <br/>\n" +"<input type=\"date\" name=\"fechaNacimiento\""+"value=\""+a.getFechaNacimiento()+"\""+"/>" + "<br/>";
             pagina+="Tipo de usuario<br/>";
             if("F".equals(a.getSexo())){
             pagina+="<input type=\"radio\" name=\"tipo\" value=\"F\"checked>F<br>";
@@ -74,7 +74,7 @@ public class servletActualizarAlumno extends HttpServlet {
             pagina+="Calle <br/>\n" +"<input type=\"text\" name=\"calle\""+"value=\""+a.getCalle()+"\""+"/>" + "<br/>\n";
             pagina+="Colonia <br/>\n" +"<input type=\"text\" name=\"colonia\""+"value=\""+a.getColonia()+"\""+"/>" + "<br/>\n";
             pagina+="Numero  <br/>\n" +"<input type=\"text\" name=\"numero\""+"value=\""+a.getNumero()+"\""+"/>" + "<br/>\n";
-            pagina+="Codigo Postal   <br/>\n" +"<input type=\"text\" name=\"cpostal\""+"value=\""+a.getCodigoPostal()+"\""+"/>" + "<br/>\n";
+            pagina+="Codigo Postal   <br/>\n" +"<input type=\"text\" name=\"cp\""+"value=\""+a.getCodigoPostal()+"\""+"/>" + "<br/>\n";
             pagina+="Correo Electronico <br/>\n" +"<input type=\"text\" name=\"email\""+"value=\""+a.getEmail()+"\""+"/>" + "<br/>\n";
             pagina+=
                     "</fieldset>\n" +
