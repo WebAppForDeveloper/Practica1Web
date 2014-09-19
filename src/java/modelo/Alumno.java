@@ -20,7 +20,7 @@ public class Alumno {
     private String nombre;
     private String paternoAlumno;
     private String maternoAlumno;
-    private Date fechaNacimiento;
+    private String fechaNacimiento;
     private String calle;
     private String colonia;
     private int numero;
@@ -49,7 +49,7 @@ public class Alumno {
         return maternoAlumno;
     }
 
-    public Date getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return fechaNacimiento;
     }
 
@@ -98,7 +98,7 @@ public class Alumno {
         this.maternoAlumno = maternoAlumno;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -131,8 +131,6 @@ public class Alumno {
         return "Alumno{" + "matricula=" + matricula + ", nombre=" + nombre + ", paternoAlumno=" + paternoAlumno + ", maternoAlumno=" + maternoAlumno + ", fechaNacimineto=" + fechaNacimiento + ", calle=" + calle + ", colonia=" + colonia + ", numero=" + numero + ", codigoPostal=" + codigoPostal + ", sexo=" + sexo + ", email=" + email + '}';
     }
 
-    public void setFechaNacimineto(String parameter) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
     
 }

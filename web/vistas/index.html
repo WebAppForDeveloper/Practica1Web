@@ -54,7 +54,21 @@ and open the template in the editor.
                                     url: "../CloginS",
                                     data: $('#fo').serialize(),
                                     success: function (data) {
-                                        console.log(data +"oooooorecibidooooooo");
+                                        var data;
+                                        if (data ==1){
+                                            $('attr').append("");
+                                        }
+                                        
+                                        if (data ==2){
+                                            $('attr').append("");
+                                        }
+                                        
+                                        if (data ==3){
+                                            $('attr').append("");
+                                        }
+                                        
+                                        
+                                        
                                         
                                     },
                                     error: function (jqXHR, estado, error) {

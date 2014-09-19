@@ -81,7 +81,7 @@ public class UsuarioProfesorDAO {
             ps.setString(2, u.getNombre());
             ps.setString(3, u.getPaterno());
             ps.setString(4, u.getMaterno());
-            ps.setDate(5, (Date) u.getFechaNacimineto());
+            ps.setString(5,  u.getFechaNacimineto());
             ps.setString(6, u.getCalle());
             ps.setString(7, u.getColonia());
             ps.setString(10, u.getSexo());
@@ -109,7 +109,7 @@ public class UsuarioProfesorDAO {
             ps.setString(2, u.getNombre());
             ps.setString(3, u.getPaterno());
             ps.setString(4, u.getMaterno());
-            ps.setDate(5, (Date) u.getFechaNacimineto());
+            ps.setString(5,u.getFechaNacimineto());
             ps.setString(6, u.getCalle());
             ps.setString(7, u.getColonia());
             ps.setString(10, u.getSexo());

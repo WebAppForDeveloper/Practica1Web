@@ -16,7 +16,7 @@ public class Profesor {
     private String nombre;
     private String paterno;
     private String materno;
-    private Date fechaNacimineto;
+    private String fechaNacimineto;
     private String calle;
     private String colonia;
     private String sexo;
@@ -58,11 +58,11 @@ public class Profesor {
         this.materno = materno;
     }
 
-    public Date getFechaNacimineto() {
+    public String getFechaNacimineto() {
         return fechaNacimineto;
     }
 
-    public void setFechaNacimineto(Date fechaNacimineto) {
+    public void setFechaNacimineto(String fechaNacimineto) {
         this.fechaNacimineto = fechaNacimineto;
     }
 

@@ -41,18 +41,23 @@ public class servletAlumno extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            
+          
+          
             Alumno alumno =new Alumno();
-            alumno.setMatricula(Long.parseLong(request.getParameter("matricula")));
+            alumno.setMatricula(Long.valueOf(request.getParameter("matricula")));
             alumno.setNombre(request.getParameter("nombre"));
             alumno.setPaternoAlumno(request.getParameter("paternoAlumno"));
             alumno.setMaternoAlumno(request.getParameter("maternoAlumno"));
-
-            alumno.setFechaNacimineto(request.getParameter("fechaNacimineto"));
+            
+            alumno.setFechaNacimiento(request.getParameter("fechaNacimiento"));
+            System.out.println(request.getParameter("fechaNacimiento"));
             alumno.setCalle(request.getParameter("calle"));
             alumno.setColonia(request.getParameter("colonia"));
-            alumno.setSexo(request.getParameter("sexo"));
+            System.out.println(request.getParameter("tipo"));
+            alumno.setSexo(request.getParameter("tipo"));
             alumno.setEmail(request.getParameter("email"));
-            alumno.setEmail(request.getParameter("email"));
+            //alumno.setEmail(request.getParameter("email"));
             
             
             UsuarioAlumnoDAO udao= new UsuarioAlumnoDAO();

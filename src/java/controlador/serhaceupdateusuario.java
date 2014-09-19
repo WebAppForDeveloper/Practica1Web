@@ -8,23 +8,19 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Profesor;
-import modelo.UsuarioProfesorDAO;
+import modelo.Alumno;
 
 /**
  *
- * @author Jorge
+ * @author Mariana
  */
-@WebServlet(name = "regProfesor", urlPatterns = {"/regProfesor"})
-public class servletProfesor extends HttpServlet {
+@WebServlet(name = "serhaceupdateusuario", urlPatterns = {"/serhaceupdateusuario"})
+public class serhaceupdateusuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,27 +32,11 @@ public class servletProfesor extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-
-            Profesor u =new Profesor();
-            u.setMatriculaProfesor(Long.valueOf(request.getParameter("matriculaProfesor")));
-            u.setNombre(request.getParameter("nombre"));
-            u.setPaterno(request.getParameter("paterno"));
-            u.setMaterno(request.getParameter("materno"));
-            u.setEmail(request.getParameter("email"));
-            u.setFechaNacimiento(request.getParameter("fechaNacimiento"));
-            u.setCalle(request.getParameter("calle"));
-            u.setColonia(request.getParameter("colonia"));
-            u.setSexo(request.getParameter("sexo"));
-            u.setEmail(request.getParameter("email"));
-            
-            
-            UsuarioProfesorDAO udao= new UsuarioProfesorDAO();
-            udao.create(u);
-            response.sendRedirect("/Practica1/index.html");
+            Alumno a =new Alumno();
+            a.setMatricula(Long.valueOf(request.getParameter("matricula")));
         }
     }
 
@@ -72,11 +52,7 @@ public class servletProfesor extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(servletProfesor.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -90,11 +66,7 @@ public class servletProfesor extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(servletProfesor.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
