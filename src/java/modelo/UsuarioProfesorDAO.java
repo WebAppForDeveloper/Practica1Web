@@ -162,7 +162,7 @@ public class UsuarioProfesorDAO {
 		}
 		return false;
 	}
-    /*
+    
     public Alumno load(Alumno alumno)throws SQLException{
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -191,23 +191,21 @@ public class UsuarioProfesorDAO {
         
         
     }
-/*
+
     public List obtenerResultados(ResultSet rs)throws SQLException{
         
        List res = new LinkedList();
        while(rs.next()){
-           Alumno user = new Alumno();
-           user.setId(rs.getInt("idUsuario"));
+           Profesor user = new Profesor();
+           user.setMatriculaProfesor(rs.getLong("MatriculaProfesor"));
            user.setNombre(rs.getString("nombre"));
-           
-           //System.out.println(rs.getString("nombre"));
-           
-           user.setaPaterno(rs.getString("aPaterno"));
-           user.setaMaterno(rs.getString("aMaterno"));
-           user.setEmail(rs.getString("email"));
-           user.setUsuario(rs.getString("nombreUsuario"));
-           user.setClave(rs.getString("claveUsuario"));
-           user.setTipoUsuario(rs.getString("tipoUsuario"));
+           user.setPaterno(rs.getString("paterno"));
+           user.setMaterno(rs.getString("materno"));
+           user.setFechaNacimiento(rs.getString("fechaNacimiento"));
+           user.setCalle(rs.getString("calle"));
+           user.setColonia(rs.getString("colonia"));
+           user.setSexo(rs.getString("sexo"));
+           user.setEmail(rs.getString("correro"));
            
            res.add(user);
            
@@ -246,6 +244,6 @@ public class UsuarioProfesorDAO {
         
         
     }
-     */
+     
      
 }

@@ -162,7 +162,7 @@ public class UsuarioAlumnoDAO {
     
     public boolean verificarUsuario(String user,String pass){
 		try {
-                    PreparedStatement ps= conexionDB.prepareStatement("Select * from alumno where alumno.matricula=? and alumno.nombre=?");
+                    PreparedStatement ps= conexionDB.prepareStatement("Select * from alumno where alumno.Matricula=? and alumno.nombre=?");
                     ps.setString(1, user);
                     ps.setString(2, pass);
                     ResultSet r = ps.executeQuery();

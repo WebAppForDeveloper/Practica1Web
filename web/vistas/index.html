@@ -55,16 +55,16 @@ and open the template in the editor.
                                     data: $('#fo').serialize(),
                                     success: function (data) {
                                         var data;
-                                        if (data ==1){
-                                            $('attr').append("");
+                                        if (data == '1'){
+                                            $(location).attr('href',"ReAdmin.html");
                                         }
                                         
-                                        if (data ==2){
-                                            $('attr').append("");
+                                        if (data ==  '2'){
+                                            $(location).attr('href',"ReProfesor.html");
                                         }
                                         
-                                        if (data ==3){
-                                            $('attr').append("");
+                                        if (data == '3'){
+                                            $(location).attr('href',"ReAlumno.html");
                                         }
                                         
                                         

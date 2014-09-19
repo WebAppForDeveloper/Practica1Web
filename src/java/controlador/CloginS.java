@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.UsuarioAdminDAO;
 import modelo.UsuarioAlumnoDAO;
 import modelo.UsuarioDAO;
-import modelo.UsuarioProfesorDAO;
+import modelo.UsuarioProfesorDAO ;
 
 /**
  *
@@ -37,28 +37,42 @@ public class CloginS extends HttpServlet {
         
         int  tipo;
         String master;
+        String matricula;
+        String contraseña;
         tipo = Integer.parseInt(request.getParameter("Tipo"));
+        matricula = request.getParameter("txtUser");
+        contraseña = request.getParameter("txtPass");
        
-        
-        response.setContentType("text/plain");
-	response.setCharacterEncoding("UTF-8");
-	response.getWriter().write("si me enlace");
-       
-        tipo = Integer.parseInt(request.getParameter("Tipo"));
         
         if( tipo == 1){
-            master = "admin";
+            master = "1";
             UsuarioAdminDAO a = new UsuarioAdminDAO();
+            
+            response.setContentType("text/plain");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(master);
         }
         if( tipo == 2){
-            master = "tech";
+            master = "2";
             UsuarioProfesorDAO p = new UsuarioProfesorDAO();
+            
+            if(p.verificarUsuario(matricula, contraseña)){
+                    response.setContentType("text/plain");
+                    response.setCharacterEncoding("UTF-8");
+                    response.getWriter().write(master);
+            }
         }
         
         if( tipo == 3){
-            master = "stud";
+            master = "3";
             UsuarioAlumnoDAO al = new UsuarioAlumnoDAO();
             
+            if(al.verificarUsuario(matricula, contraseña)){
+            
+                    response.setContentType("text/plain");
+                    response.setCharacterEncoding("UTF-8");
+                    response.getWriter().write(master);
+            }
         }
         
         
