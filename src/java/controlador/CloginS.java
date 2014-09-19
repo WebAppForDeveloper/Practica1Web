@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.UsuarioAdminDAO;
 import modelo.UsuarioAlumnoDAO;
 import modelo.UsuarioDAO;
-import modelo.UsuarioProfesorDAO;
+import modelo.UsuarioProfesorDAO ;
 
 /**
  *
