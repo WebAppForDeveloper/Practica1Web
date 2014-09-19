@@ -1,35 +1,28 @@
-package controlador;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+package controlador;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.mail.MessagingException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Alumno;
-import modelo.Mail;
 import modelo.Profesor;
-import modelo.UsuarioAlumnoDAO;
-import modelo.UsuarioDAO;
 import modelo.UsuarioProfesorDAO;
 
 /**
  *
  * @author Mariana
  */
-@WebServlet(urlPatterns = {"/recuperarcon"})
-public class recuperarcon extends HttpServlet {
+public class hacerupdateProf extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,46 +34,22 @@ public class recuperarcon extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, MessagingException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            String email;
-            Alumno a =new Alumno();
-            a.setMatricula(Long.valueOf(request.getParameter("boleta")));
-            UsuarioAlumnoDAO adao=new UsuarioAlumnoDAO();
-            a=adao.load(a);
-            //UsuarioDAO udao=new UsuarioDAO();
-            //udao.recuperar(12);
-            //a=udao.recuperar(Long.valueOf(request.getParameter("boleta")));
-            if(a!=null){
-            System.out.println(a);
-                Mail enviarmail =new Mail();
-                String asunto="Recuperación de Contraseña";
-                String texto="Hola";
-                texto+=a.getNombre();
-                texto+=a.getPaternoAlumno();
-                texto+="tu contraseña es:";
-                texto+=a.getNombre();
-                enviarmail.enviarMail(a.getEmail(),asunto, texto);
-            }
-            else{
-            System.out.println("null");
-            Profesor prof=new Profesor();
-            prof.setMatriculaProfesor(Long.valueOf(request.getParameter("boleta")));
-            UsuarioProfesorDAO pdao =new UsuarioProfesorDAO();
-            prof=pdao.load(prof);
-            System.out.println(prof.getEmail());
-            Mail enviarmail =new Mail();
-                String asunto="Recuperación de Contraseña";
-                String texto="Hola";
-                texto+=prof.getNombre();
-                texto+=prof.getPaterno();
-                texto+="su contraseña es:";
-                texto+=prof.getNombre();
-                enviarmail.enviarMail(prof.getEmail(),asunto, texto);
-            }
-            
+           Profesor prof =new Profesor();
+            prof.setMatriculaProfesor(Long.valueOf(request.getParameter("matricula")));
+            prof.setNombre(request.getParameter("nombre"));
+            prof.setPaterno(request.getParameter("paterno"));
+            prof.setMaterno(request.getParameter("materno"));
+            prof.setFechaNacimineto(request.getParameter("fechaNacimiento"));
+            prof.setCalle(request.getParameter("calle"));
+            prof.setColonia(request.getParameter("colonia"));
+            prof.setSexo(request.getParameter("tipo"));
+            prof.setEmail(request.getParameter("email"));
+            UsuarioProfesorDAO profdao =new UsuarioProfesorDAO();
+            profdao.update(prof);
+            response.sendRedirect("../index.html");
         }
     }
 
@@ -99,9 +68,7 @@ public class recuperarcon extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(recuperarcon.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MessagingException ex) {
-            Logger.getLogger(recuperarcon.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(hacerupdateProf.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -119,9 +86,7 @@ public class recuperarcon extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(recuperarcon.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MessagingException ex) {
-            Logger.getLogger(recuperarcon.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(hacerupdateProf.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

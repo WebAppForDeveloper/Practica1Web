@@ -48,7 +48,7 @@ public class servletProfesor extends HttpServlet {
             u.setNombre(request.getParameter("nombre"));
             u.setPaterno(request.getParameter("paterno"));
             u.setMaterno(request.getParameter("materno"));
-            u.setEmail(request.getParameter("email"));
+            u.setEmail(request.getParameter("correro"));
             u.setFechaNacimineto(request.getParameter("fechaNacimiento"));
             u.setCalle(request.getParameter("calle"));
             u.setColonia(request.getParameter("colonia"));

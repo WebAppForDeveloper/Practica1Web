@@ -12,6 +12,14 @@
         <servlet-name>VerProfesorS</servlet-name>
         <servlet-class>controlador.VerProfesorS</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>servletactualizarprof</servlet-name>
+        <servlet-class>controlador.servletactualizarprof</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>hacerupdateProf</servlet-name>
+        <servlet-class>controlador.hacerupdateProf</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CloginS</servlet-name>
         <url-pattern>/CloginS</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>VerProfesorS</servlet-name>
         <url-pattern>/VerProfesorS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>servletactualizarprof</servlet-name>
+        <url-pattern>/servletactualizarprof</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>hacerupdateProf</servlet-name>
+        <url-pattern>/hacerupdateProf</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

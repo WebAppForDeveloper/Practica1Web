@@ -24,7 +24,7 @@ import java.util.List;
 public class UsuarioProfesorDAO {
     
     private static final String SQL_INSERT = "insert into profesor (MatriculaProfesor,nombre,paterno,materno,fechaNacimiento,calle,colonia,sexo,correro) values(?,?,?,?,?,?,?,?,?)";
-    private static final String SQL_UPDATE = "update profesor set matriculaProfesor=?,nombre=?,paterno=?,materno=?,fechaNacimiento=?,calle=?,colonia=?,sexo=?,email=? where matriculaProfesor=?";
+    private static final String SQL_UPDATE = "update profesor set nombre=?,paterno=?,materno=?,fechaNacimiento=?,calle=?,colonia=?,sexo=?,correro=? where matriculaProfesor=?";
     private static final String SQL_DELETE = "delete from profesor where matriculaProfesor=?";
     private static final String SQL_SELECT ="select * from profesor where matriculaProfesor=?";
     private static final String SQL_SELECT_ALL ="select * from profesor";
@@ -103,17 +103,17 @@ public class UsuarioProfesorDAO {
         PreparedStatement ps = null;
         
         try{
-            ps= conexionDB.prepareStatement(SQL_INSERT);
-             ps.setLong(1, u.getMatriculaProfesor());
-            ps.setString(2, u.getNombre());
-            ps.setString(3, u.getPaterno());
-            ps.setString(4, u.getMaterno());
-            ps.setString(5,u.getFechaNacimineto());
-            ps.setString(6, u.getCalle());
-            ps.setString(7, u.getColonia());
-            ps.setString(10, u.getSexo());
-            ps.setString(11, u.getEmail());
+            ps= conexionDB.prepareStatement(SQL_UPDATE);
             
+            ps.setString(1, u.getNombre());
+            ps.setString(2, u.getPaterno());
+            ps.setString(3, u.getMaterno());
+            ps.setString(4,u.getFechaNacimineto());
+            ps.setString(5, u.getCalle());
+            ps.setString(6, u.getColonia());
+            ps.setString(7, u.getSexo());
+            ps.setString(8, u.getEmail());
+            ps.setLong(9, u.getMatriculaProfesor());
             ps.executeUpdate();
             
         }
@@ -163,19 +163,19 @@ public class UsuarioProfesorDAO {
 		return false;
 	}
     
-    public Alumno load(Alumno alumno)throws SQLException{
+    public Profesor load(Profesor p)throws SQLException{
         PreparedStatement ps = null;
         ResultSet rs = null;
         
         try{
             ps= conexionDB.prepareStatement(SQL_SELECT);
-            ps.setLong(1, alumno.getMatricula());
+            ps.setLong(1, p.getMatriculaProfesor());
             rs = ps.executeQuery();
             //ps.setString(7, usuario.getTipoUsuario());
             List resultados = obtenerResultados(rs);
             if(resultados.size() > 0)
             {
-                return (Alumno)resultados.get(0);
+                return (Profesor)resultados.get(0);
             }
             else {
                 return null;
