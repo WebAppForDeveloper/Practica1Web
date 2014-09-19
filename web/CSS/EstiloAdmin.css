@@ -1,6 +1,6 @@
 
 /* 
-    Created on : 19/09/2014, 11:10:03 AM
+    Created on : 19/09/2014, 11:30:41 AM
     Author     : Jorge
 */
 body {
@@ -32,22 +32,22 @@ body {
 		height: 520px;
 		margin: auto;
 		margin-top: 10px;
-		background: url(..//Imagenes/escom.jpg) no-repeat 95% 40%; 
+		background: url(..//Imagenes/patio2.jpg) no-repeat 100% 30%; 
 	}
         
         div#nombre{
             position: absolute; 
             top: 160px; 
-            left: 200px;
+            left: 170px;
         }
 	
 	form#formulario{
-		width: 400px;
+		width: 320px;
 		height: 180px;
 		background:white;
 		position: absolute; 
 		top: 230px; 
-		left: 100px;
+		left: 40px;
 		border:8px solid black;
 		padding:10px 40px;
 		border-radius: 50px;
