@@ -27,6 +27,15 @@ public class Alumno {
     private String codigoPostal;
     private String sexo;
     private String email;
+
+    public int getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(int carrera) {
+        this.carrera = carrera;
+    }
+    private  int carrera;
     
     
     public Alumno() {
