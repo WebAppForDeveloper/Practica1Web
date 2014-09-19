@@ -6,26 +6,33 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>ACTUALIZAR</title>
+        <LINK href="../CSS/EstiloRec.css" rel="stylesheet" type="text/css"><link>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>
-            <form action="../servletActualizarAlumno" method="post" >
-            <fieldset>
+        <div id="encabezado">
+        <header> 
+            <br><h1>AUTENTICACIÓN ESCOM</h1>
+            <img id="ipn" src="../Imagenes/ipn.jpg">
+        </header></div>
+        <div id="body"><section>
+        <div id="nombre"><h1>Ingresar</h1></div>
+            <form action="../servletActualizarAlumno" method="post" id="formulario">
+            
                 <a href="pruebaactualizar.html"></a>
-              <legend>Ingresar</legend>
+              
               Matricula <br/>
               <input type="text" name="matricula" />
               <br/>
               
               
-            </fieldset>
-            <input type="submit" value="Actualizar">
+            
+              <input type="submit" value="Actualizar" id="enviar">
             
             
             </form>
-        </div>
+        </section></div>
     </body>
 </html>
