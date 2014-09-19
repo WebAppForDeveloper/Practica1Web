@@ -23,7 +23,7 @@ import java.util.List;
  */
 public class UsuarioProfesorDAO {
     
-    private static final String SQL_INSERT = "insert into profesor(matriculaProfesor,nombre,paterno,materno,fechaNacimiento,calle,colonia,sexo,email) values(?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT = "insert into profesor (MatriculaProfesor,nombre,paterno,materno,fechaNacimiento,calle,colonia,sexo,correro) values(?,?,?,?,?,?,?,?,?)";
     private static final String SQL_UPDATE = "update profesor set matriculaProfesor=?,nombre=?,paterno=?,materno=?,fechaNacimiento=?,calle=?,colonia=?,sexo=?,email=? where matriculaProfesor=?";
     private static final String SQL_DELETE = "delete from profesor where matriculaProfesor=?";
     private static final String SQL_SELECT ="select * from profesor where matriculaProfesor=?";
@@ -81,13 +81,12 @@ public class UsuarioProfesorDAO {
             ps.setString(2, u.getNombre());
             ps.setString(3, u.getPaterno());
             ps.setString(4, u.getMaterno());
-            ps.setString(5,  u.getFechaNacimineto());
+            ps.setString(5, u.getFechaNacimineto());
             ps.setString(6, u.getCalle());
             ps.setString(7, u.getColonia());
-            ps.setString(10, u.getSexo());
-            ps.setString(11, u.getEmail());
+            ps.setString(8, u.getSexo());
+            ps.setString(9, u.getEmail());
             //ps.setInt(8,1);
-            
             ps.executeUpdate();
             
         }

@@ -47,11 +47,10 @@ public class servletProfesor extends HttpServlet {
             u.setPaterno(request.getParameter("paterno"));
             u.setMaterno(request.getParameter("materno"));
             u.setEmail(request.getParameter("email"));
-            u.setFechaNacimiento(request.getParameter("fechaNacimiento"));
+            u.setFechaNacimineto(request.getParameter("fechaNacimiento"));
             u.setCalle(request.getParameter("calle"));
             u.setColonia(request.getParameter("colonia"));
-            u.setSexo(request.getParameter("sexo"));
-            u.setEmail(request.getParameter("email"));
+            u.setSexo(request.getParameter("tipo"));
             
             
             UsuarioProfesorDAO udao= new UsuarioProfesorDAO();

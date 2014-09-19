@@ -98,8 +98,6 @@ public class Profesor {
         this.email = email;
     }
 
-    public void setFechaNacimiento(String parameter) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     
 }
