@@ -12,12 +12,14 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Alumno;
+import modelo.Mail;
 import modelo.UsuarioAlumnoDAO;
 
 /**
@@ -37,7 +39,7 @@ public class servletAlumno extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException, SQLException, MessagingException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -51,17 +53,28 @@ public class servletAlumno extends HttpServlet {
             alumno.setMaternoAlumno(request.getParameter("maternoAlumno"));
             
             alumno.setFechaNacimiento(request.getParameter("fechaNacimiento"));
-            System.out.println(request.getParameter("fechaNacimiento"));
+            //System.out.println(request.getParameter("fechaNacimiento"));
             alumno.setCalle(request.getParameter("calle"));
             alumno.setColonia(request.getParameter("colonia"));
+            alumno.setNumero(Integer.parseInt(request.getParameter("numero")));
             System.out.println(request.getParameter("tipo"));
             alumno.setSexo(request.getParameter("tipo"));
             alumno.setEmail(request.getParameter("email"));
+            alumno.setCarrera(Integer.parseInt(request.getParameter("carrera")));
             //alumno.setEmail(request.getParameter("email"));
             
             
             UsuarioAlumnoDAO udao= new UsuarioAlumnoDAO();
             udao.create(alumno);
+            
+            Mail mail = new Mail();
+            String asunto="Bienvenido al sistema";
+                String texto="Hola";
+                texto+=alumno.getNombre();
+                texto+=alumno.getPaternoAlumno();
+                texto+="tu contraseña es:";
+                texto+=alumno.getNombre();
+                mail.enviarMail(alumno.getEmail(),asunto, texto);
             response.sendRedirect("/Practica1/index.html");
         }
     }
@@ -82,6 +95,8 @@ public class servletAlumno extends HttpServlet {
             processRequest(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(servletAlumno.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MessagingException ex) {
+            Logger.getLogger(servletAlumno.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -99,6 +114,8 @@ public class servletAlumno extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
+            Logger.getLogger(servletAlumno.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MessagingException ex) {
             Logger.getLogger(servletAlumno.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
