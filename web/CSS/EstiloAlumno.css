@@ -1,0 +1,61 @@
+
+/* 
+    Created on : 19/09/2014, 12:36:24 AM
+    Author     : Jorge
+*/
+body {
+		background: #f2f0f1;
+		background-repeat: no-repeat;
+		background-size: 100%;
+	}
+	
+	div#encabezado {
+		width: 100%;
+		height: 150px;
+		background: url(../Imagenes/sep.png) no-repeat 10px 5px #6c1a42;
+		text-align: center;
+		color: white;
+		padding:1px 1px;
+	}
+	
+	img#ipn {
+		width: 130px;
+		height: 140px;
+		position: absolute;
+		top: 18px;
+		left: 1150px;
+	}
+	
+	div#body {
+		width: 1500;
+		height: 600px;
+		margin: auto;
+		margin-top: 10px;
+		background: url(..//Imagenes/escom20.png) no-repeat 140% 40%; 
+	}
+	
+	form#formulario{
+		width: 400px;
+		height: 650px;
+		background:white;
+		position: absolute; 
+		top: 180px; 
+		left: 80px;
+		border:8px solid black;
+		padding:10px 40px;
+		border-radius: 50px;
+		box-shadow: 13px 8px 3px gray;
+		text-align: center;
+		font-family: Times New Roman;
+	
+	}
+	input#enviar{
+		background: black;
+		border:3px solid #6c1a42;
+		padding:3px 40px;
+		border-radius:5px;
+		text-align: center;
+		color:white;
+	}
+	
+	

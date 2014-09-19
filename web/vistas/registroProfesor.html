@@ -7,12 +7,19 @@ and open the template in the editor.
 <html>
     <head>
         <title>Registro Profesor</title>
+        <LINK href="../CSS/Estilo.css" rel="stylesheet" type="text/css"><link>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <form action="../regProfesor" method="post" >
-            <fieldset>
+        <div id="encabezado">
+        <header> 
+            <br><h1>AUTENTICACIÓN ESCOM</h1>
+            <img id="ipn" src="../Imagenes/ipn.jpg">
+        </header></div>
+        <div id="body"><section>
+        <form action="../regProfesor" method="post" id="formulario">
+            
                 <label>Registro del Profesor</label><br>
                 <label>Introduzca sus datos para ser registrado:</label><br>
               Matricula <br/>
@@ -43,8 +50,9 @@ and open the template in the editor.
               <input type="text" name="correro" />
               <br/>
               
-            <input type="submit" value="Registrarse">
-            </fieldset>
+              <input type="submit" value="Registrarse" id="enviar">
+            
             </form>
+        </section></div>  
     </body>
 </html>
