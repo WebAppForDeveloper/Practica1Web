@@ -4,9 +4,25 @@
         <servlet-name>CloginS</servlet-name>
         <servlet-class>controlador.CloginS</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VerAlumnosS</servlet-name>
+        <servlet-class>controlador.VerAlumnosS</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerProfesorS</servlet-name>
+        <servlet-class>controlador.VerProfesorS</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CloginS</servlet-name>
         <url-pattern>/CloginS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerAlumnosS</servlet-name>
+        <url-pattern>/VerAlumnosS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerProfesorS</servlet-name>
+        <url-pattern>/VerProfesorS</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
