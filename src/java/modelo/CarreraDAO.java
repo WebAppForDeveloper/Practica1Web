@@ -158,19 +158,12 @@ public class CarreraDAO {
         
        List res = new LinkedList();
        while(rs.next()){
-           Alumno user = new Alumno();
-           user.setMatricula(rs.getInt("Matricula"));
-           user.setNombre(rs.getString("nombre"));
-           user.setPaternoAlumno(rs.getString("paternoAlumno"));
-           user.setMaternoAlumno(rs.getString("maternoAlumno"));
-           user.setFechaNacimiento(rs.getString("fechaNacimiento"));
-           user.setCalle(rs.getString("calle"));
-           user.setColonia(rs.getString("colonia"));
-           user.setNumero(rs.getInt("numero"));
-           user.setCodigoPostal(rs.getString("codigoPostal"));
-           user.setSexo(rs.getString("sexo"));
-           user.setEmail(rs.getString("email"));
-           res.add(user);
+           Carrera c = new Carrera();
+           c.setIdCarrera(rs.getInt("idcarrera"));
+           c.setNombre(rs.getString("nombreCarrera"));
+           c.setDuración(rs.getInt("duracion"));
+           
+           res.add(c);
            
        }
         
