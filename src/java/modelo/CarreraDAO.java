@@ -6,59 +6,31 @@
 
 package modelo;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  *
- * @author javs
+ * @author Mariana
  */
-public class UsuarioAlumnoDAO {
-    
-    private static final String SQL_INSERT = "insert into alumno (Matricula,nombre,paternoAlumno,maternoAlumno,fechaNacimiento,calle,colonia,numero,codigoPostal,sexo,email,carrera_idcarrera) values (?,?"
-            + ",?"
-            + ",?"
-            + ",?"
-            + ",?"
-            + ",?"
-            + ",?"
-            + ",?"
-            + ",?"
-            + ",?,"
-            + "?)";
-    private static final String SQL_UPDATE = "update alumno set nombre=?,paternoAlumno=?,"
-            + "maternoAlumno=?,"
-            + "fechaNacimiento=?,"
-            + "calle=?,"
-            + "colonia=?"
-            + ",numero=?,"
-            + "codigoPostal=?,"
-            + "sexo=?,"
-            + "email=? "
-            + "where Matricula=?";
-    
-    private static final String SQL_DELETE = "delete from alumno where Matricula=?";
-    private static final String SQL_SELECT ="select * from alumno where Matricula=?";
-    private static final String SQL_SELECT_ALL ="select * from alumno";
-    private static final String SQL_GRAFICAR ="{call spDatosGrafica()}";
-    
-    
-    
-    private String url = "jdbc:mysql://localhost:3306/mydb";
+public class CarreraDAO {
+ private static final String SQL_INSERT = "insert into carrera (nombreCarrera,duracion) values(?,?)"; 
+ private static final String SQL_Update = "update carrera set nombreCarrera=?,duracion=? where idCarrera=?"; 
+ private static final String SQL_DELETE = "delete from carera where idcarrera=?";
+ private static final String SQL_SELECT ="select * from carrera where idcarrera=?";
+ private static final String SQL_SELECT_ALL ="select * from carrera";
+ private String url = "jdbc:mysql://localhost:3306/mydb";
 	private String driver = "com.mysql.jdbc.Driver";
 	private String usuario = "root";
 	private String password = "root";
 	private Connection conexionDB = null;
 
-	public UsuarioAlumnoDAO() {
+	public CarreraDAO() {
 		this.conexionDB = conectar(this.url, this.driver, this.usuario,
 				this.password);
                 
@@ -92,23 +64,14 @@ public class UsuarioAlumnoDAO {
 	}
     
     //private Connection con = null;
-    public void create(Alumno alumno)throws SQLException{
+    public void create(Carrera carrera)throws SQLException{
         PreparedStatement ps = null;
         
         try{
             ps= conexionDB.prepareStatement(SQL_INSERT);
-            ps.setLong(1, alumno.getMatricula());
-            ps.setString(2, alumno.getNombre());
-            ps.setString(3, alumno.getPaternoAlumno());
-            ps.setString(4, alumno.getMaternoAlumno());
-            ps.setString(5,  alumno.getFechaNacimiento());
-            ps.setString(6, alumno.getCalle());
-            ps.setString(7, alumno.getColonia());
-            ps.setInt(8, alumno.getNumero());
-            ps.setString(9, alumno.getCodigoPostal());
-            ps.setString(10, alumno.getSexo());
-            ps.setString(11, alumno.getEmail());
-            ps.setInt(12,alumno.getCarrera());
+            ps.setString(1,carrera.getNombre());
+            ps.setInt(2,carrera.getDuración());
+            
             //ps.setInt(8,1);
             ps.executeUpdate();
             
@@ -122,23 +85,15 @@ public class UsuarioAlumnoDAO {
     }
     
   
-    public void update(Alumno alumno)throws SQLException{
+    public void update(Carrera carrera)throws SQLException{
         PreparedStatement ps = null;
         
         try{
-            ps= conexionDB.prepareStatement(SQL_UPDATE);
+            ps= conexionDB.prepareStatement(SQL_Update);
              
-            ps.setString(1, alumno.getNombre());
-            ps.setString(2, alumno.getPaternoAlumno());
-            ps.setString(3, alumno.getMaternoAlumno());
-            ps.setString(4, alumno.getFechaNacimiento());
-            ps.setString(5, alumno.getCalle());
-            ps.setString(6, alumno.getColonia());
-            ps.setInt(7, alumno.getNumero());
-            ps.setString(8, alumno.getCodigoPostal());
-            ps.setString(9, alumno.getSexo());
-            ps.setString(10, alumno.getEmail());
-            ps.setLong(11, alumno.getMatricula());
+            ps.setString(1, carrera.getNombre());
+            ps.setInt(2, carrera.getDuración());
+            ps.setInt(3, carrera.getIdCarrera());
             ps.executeUpdate();
             
         }
@@ -149,12 +104,12 @@ public class UsuarioAlumnoDAO {
         
         
     }
-    public void delet(Alumno alumno)throws SQLException{
+    public void delet(Carrera carrera)throws SQLException{
         PreparedStatement ps = null;
         
         try{
             ps= conexionDB.prepareStatement(SQL_DELETE);
-            ps.setLong(1, alumno.getMatricula());
+            ps.setInt(1, carrera.getIdCarrera());
             //ps.setString(7, usuario.getTipoUsuario());
             
             ps.executeUpdate();
@@ -168,39 +123,21 @@ public class UsuarioAlumnoDAO {
         
     }
     
-    public boolean verificarUsuario(String user,String pass){
-		try {
-                    PreparedStatement ps= conexionDB.prepareStatement("Select * from alumno where alumno.Matricula=? and alumno.nombre=?");
-                    ps.setString(1, user);
-                    ps.setString(2, pass);
-                    ResultSet r = ps.executeQuery();
-            
-			if(r.next()){
-				//System.out.println(r.getObject(1));
-                                //System.out.println(r.getObject(2));
-				return true;
-			}
-			return false;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return false;
-	}
+   
     
-    public Alumno load(Alumno alumno)throws SQLException{
+    public Carrera load(Carrera carrera)throws SQLException{
         PreparedStatement ps = null;
         ResultSet rs = null;
         
         try{
             ps= conexionDB.prepareStatement(SQL_SELECT);
-            ps.setLong(1, alumno.getMatricula());
+            ps.setInt(1, carrera.getIdCarrera());
             rs = ps.executeQuery();
             //ps.setString(7, usuario.getTipoUsuario());
             List resultados = obtenerResultados(rs);
             if(resultados.size() > 0)
             {
-                return (Alumno)resultados.get(0);
+                return (Carrera)resultados.get(0);
             }
             else {
                 return null;
@@ -270,6 +207,4 @@ public class UsuarioAlumnoDAO {
         
         
     }
-     
-     
-}
+} 
