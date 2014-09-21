@@ -23,9 +23,7 @@ import java.util.List;
  */
 public class UsuarioAlumnoDAO {
     
-    private static final String SQL_INSERT = "insert into alumno (Matricula,nombre,paternoAlumno,maternoAlumno,fechaNacimiento,calle,colonia,numero,codigoPostal,sexo,email,carrera_idcarrera) values "
-            + "(?"
-            + ",?"
+    private static final String SQL_INSERT = "insert into alumno (Matricula,nombre,paternoAlumno,maternoAlumno,fechaNacimiento,calle,colonia,numero,codigoPostal,sexo,email,carrera_idcarrera) values (?,?"
             + ",?"
             + ",?"
             + ",?"

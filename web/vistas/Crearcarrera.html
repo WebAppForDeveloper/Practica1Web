@@ -6,11 +6,34 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Agregar Carrera</title>
+        <LINK href="../CSS/EstiloRec.css" rel="stylesheet" type="text/css"><link>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+        <div>
+            <div id="encabezado">
+        <header> 
+            <br><h1>Agregar Carrera</h1>
+            <img id="ipn" src="../Imagenes/ipn.jpg">
+        </header></div>
+        <div id="body"><section>
+        <div id="nombre"><h1>Recuperar contraseña</h1></div>
+            <form action="../agregarcarrera" method="post" id="formulario" >
+            
+                <label>Nombre Carrera</label>
+              <input type="text" name="nombre" />
+              <br/>
+              <label>Duración en semestres</label>
+              <input type="text" name="duracion" />
+              <br/>
+              
+              <input type="submit" value="agregar" id="enviar">
+            
+            </form>
+        </section>
+        </div>
+        </div>
     </body>
 </html>
