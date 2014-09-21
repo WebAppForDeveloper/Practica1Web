@@ -35,7 +35,7 @@ and open the template in the editor.
                 </tr>
                 
                 <tr>
-                <td><label>Carrera</label></td>
+                <td><label>Tipo </label></td>
                 <td><select name=Tipo value="Tipo De Usuario">
                         <option name=uno value="1"> Administrador </option>
                         <option name=dos value='2'> profesor </option>
@@ -66,6 +66,9 @@ and open the template in the editor.
                                         
                                         if (data == '3'){
                                             $(location).attr('href',"ReAlumno.html");
+                                        }
+                                        if (data == 'Error'){
+                                            alert("Error en la cuenta");
                                         }
                                         
                                         

@@ -42,11 +42,24 @@ and open the template in the editor.
                 
               
                 </table>
-            <input type="submit" value="Entrar" id="enviar">
+            
         </form>
+        
         </section></div> 
         <script>
-                    //http://www.anerbarrena.com/jquery-load-html-div-460/    entrar aqui
-                </script>
+              $('document').ready(function (){
+                        
+                              $.ajax({
+                                    type: "post",
+                                    url: "../ControladorAlumno",
+                                    success: function (data) {
+                                        //var data;
+                                        $('#nombre').html("<h1>Bienvenido "+ data + "</h1>");
+                                    }
+                                    
+                              });
+                        
+                });
+        </script>
     </body>
 </html>

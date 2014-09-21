@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.UsuarioAdminDAO;
 import modelo.UsuarioAlumnoDAO;
 import modelo.UsuarioDAO;
@@ -42,36 +43,70 @@ public class CloginS extends HttpServlet {
         tipo = Integer.parseInt(request.getParameter("Tipo"));
         matricula = request.getParameter("txtUser");
         contraseña = request.getParameter("txtPass");
+        HttpSession session;
+        session = request.getSession(true);
        
         
         if( tipo == 1){
+            
             master = "1";
             UsuarioAdminDAO a = new UsuarioAdminDAO();
             
-            response.setContentType("text/plain");
-            response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(master);
+            
+            if(a.verificarUsuario(matricula, contraseña)){
+                session.setAttribute("usuario", matricula);
+                response.setContentType("text/plain");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(master);
+            }
+            
+            else{
+                response.setContentType("text/plain");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write("Error");
+            }
         }
+        
+        
         if( tipo == 2){
+            
             master = "2";
             UsuarioProfesorDAO p = new UsuarioProfesorDAO();
             
             if(p.verificarUsuario(matricula, contraseña)){
+                    
+                    session.setAttribute("usuario", matricula);
                     response.setContentType("text/plain");
                     response.setCharacterEncoding("UTF-8");
                     response.getWriter().write(master);
+            }   
+            
+            else{
+                response.setContentType("text/plain");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write("Error");
             }
         }
         
+        
         if( tipo == 3){
+            
             master = "3";
             UsuarioAlumnoDAO al = new UsuarioAlumnoDAO();
             
             if(al.verificarUsuario(matricula, contraseña)){
-                    //System.out.println(al.verificarUsuario(matricula, contraseña )+"VVVVVVVVVVVV");
+                    System.out.println(al.verificarUsuario(matricula, contraseña )+"VVVVVVVVVVVV");
+                    
+                    session.setAttribute("usuario", matricula);
                     response.setContentType("text/plain");
                     response.setCharacterEncoding("UTF-8");
                     response.getWriter().write(master);
+            }
+            
+            else{
+                response.setContentType("text/plain");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write("Error");
             }
         }
         

@@ -20,6 +20,18 @@
         <servlet-name>hacerupdateProf</servlet-name>
         <servlet-class>controlador.hacerupdateProf</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorAlumno</servlet-name>
+        <servlet-class>controlador.ControladorAlumno</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>controladorAdmin</servlet-name>
+        <servlet-class>controlador.controladorAdmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>controladorProfesor</servlet-name>
+        <servlet-class>controlador.controladorProfesor</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CloginS</servlet-name>
         <url-pattern>/CloginS</url-pattern>
@@ -39,6 +51,18 @@
     <servlet-mapping>
         <servlet-name>hacerupdateProf</servlet-name>
         <url-pattern>/hacerupdateProf</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorAlumno</servlet-name>
+        <url-pattern>/ControladorAlumno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controladorAdmin</servlet-name>
+        <url-pattern>/controladorAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controladorProfesor</servlet-name>
+        <url-pattern>/controladorProfesor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

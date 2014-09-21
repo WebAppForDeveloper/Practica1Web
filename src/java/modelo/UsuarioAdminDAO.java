@@ -72,22 +72,15 @@ public class UsuarioAdminDAO {
 	}
     
     //private Connection con = null;
-    public void create(Alumno alumno)throws SQLException{
+    public void create(Admon admon)throws SQLException{
         PreparedStatement ps = null;
         
         try{
             ps= conexionDB.prepareStatement(SQL_INSERT);
-            ps.setLong(1, alumno.getMatricula());
-            ps.setString(2, alumno.getNombre());
-            ps.setString(3, alumno.getPaternoAlumno());
-            ps.setString(4, alumno.getMaternoAlumno());
-            //ps.setDate(5, (Date) alumno.getFechaNacimineto());
-            ps.setString(6, alumno.getCalle());
-            ps.setString(7, alumno.getColonia());
-            ps.setInt(8, alumno.getNumero());
-            ps.setString(9, alumno.getCodigoPostal());
-            ps.setString(10, alumno.getSexo());
-            ps.setString(11, alumno.getEmail());
+            ps.setString(1, admon.getNombre());
+            ps.setString(2, admon.getApellidoPaterno());
+            ps.setString(3, admon.getApellidoMaterno());
+            ps.setString(4, admon.getClave());
             //ps.setInt(8,1);
             
             ps.executeUpdate();
@@ -150,7 +143,7 @@ public class UsuarioAdminDAO {
     
     public boolean verificarUsuario(String user,String pass){
 		try {
-                    PreparedStatement ps= conexionDB.prepareStatement("Select * from admin where admin.nombre=? and admin.claveUsuario=?");
+                    PreparedStatement ps= conexionDB.prepareStatement("Select * from administrador where administrador.nombre=? and administrador.clave=?");
                     ps.setString(1, user);
                     ps.setString(2, pass);
                     ResultSet r = ps.executeQuery();
