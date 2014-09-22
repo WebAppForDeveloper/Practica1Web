@@ -25,14 +25,13 @@ and open the template in the editor.
                     
                 <tr>  
                 <td><label>Actualizar mis datos</label></td> 
-                <td><a <a href="pruebaactualizar.html"><input type="button" value="Actualizar perfil"</a></td> 
+                <td><a <a href="../servletActualizarAlumno"><input type="button" value="Actualizar perfil"</a></td> 
                 </tr>
                 
                 <tr>
-                <form action="../VerAlumnosS" method="post">
-                <td><label>Ver listas</label></td> 
-                <td><input type="submit" value="Ver listas"></td> 
-                </form>
+                
+                <td><label>Ver listas De compañeros</label></td> 
+                <td><a <a href="../VerAlumnosS"><input type="button" value="Ver listas"</a></td> 
                 </tr>
                 
                 <tr>  
@@ -45,13 +44,17 @@ and open the template in the editor.
             
         </form>
         
-        </section></div> 
+        </section>
+        </div> 
+        <div id="cerrar">
+            <a href="index.html"><input type="button" value="Cerrar session"></a>
+        </div>
         <script>
               $('document').ready(function (){
                         
                               $.ajax({
                                     type: "post",
-                                    url: "../ControladorAlumno",
+                                    url: "../ControladorSession",
                                     success: function (data) {
                                         //var data;
                                         $('#nombre').html("<h1>Bienvenido "+ data + "</h1>");

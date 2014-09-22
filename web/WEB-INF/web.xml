@@ -32,6 +32,10 @@
         <servlet-name>controladorProfesor</servlet-name>
         <servlet-class>controlador.controladorProfesor</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorSession</servlet-name>
+        <servlet-class>controlador.ControladorSession</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CloginS</servlet-name>
         <url-pattern>/CloginS</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>controladorProfesor</servlet-name>
         <url-pattern>/controladorProfesor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorSession</servlet-name>
+        <url-pattern>/ControladorSession</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

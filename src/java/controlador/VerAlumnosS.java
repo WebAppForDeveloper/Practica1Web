@@ -68,7 +68,7 @@ public class VerAlumnosS extends HttpServlet {
             pagina +="<title>userlist</title>";            
             pagina +="</head>";
             pagina +="<body>";
-            pagina +="<h1>Lista de usuarios" + request.getContextPath() + "</h1>";
+            pagina +="<h1>Lista de Alumnos </h1>";
             pagina +="<table>";
             ls = c.loadAll();
             for(int i = 0; i<ls.size();i++){
@@ -102,7 +102,7 @@ public class VerAlumnosS extends HttpServlet {
                 pagina += "</tr>";
                 
             }
-            enlaceG = "<a href='/vistas/ReAlumno.html'>"+"<-- Regresar"+"</a>";
+            enlaceG = "<a href='/Practica1/vistas/ReAlumno.html'>"+"<input type ='button' value='Regresar'"+"</a>";
             pagina +="<table>";
             pagina += enlaceG;
             pagina +="</body>";

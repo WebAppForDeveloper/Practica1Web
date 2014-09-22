@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author javs
  */
-public class controladorAdmin extends HttpServlet {
+public class ControladorSession extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,13 +31,13 @@ public class controladorAdmin extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         HttpSession session = request.getSession();
+       HttpSession session = request.getSession(true);
        String usuario = (String)session.getAttribute("usuario");
+       String nombre = (String)session.getAttribute("nombre");
        
       response.setContentType("text/plain");
       response.setCharacterEncoding("UTF-8");
-      response.getWriter().write(usuario);
-      
+      response.getWriter().write(nombre);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

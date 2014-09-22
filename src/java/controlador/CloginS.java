@@ -43,6 +43,7 @@ public class CloginS extends HttpServlet {
         tipo = Integer.parseInt(request.getParameter("Tipo"));
         matricula = request.getParameter("txtUser");
         contraseña = request.getParameter("txtPass");
+//      Abrimos session        
         HttpSession session;
         session = request.getSession(true);
        
@@ -54,13 +55,17 @@ public class CloginS extends HttpServlet {
             
             
             if(a.verificarUsuario(matricula, contraseña)){
+                
                 session.setAttribute("usuario", matricula);
+                session.setAttribute("nombre", contraseña);
+                
                 response.setContentType("text/plain");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(master);
             }
             
             else{
+                
                 response.setContentType("text/plain");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write("Error");
@@ -76,12 +81,15 @@ public class CloginS extends HttpServlet {
             if(p.verificarUsuario(matricula, contraseña)){
                     
                     session.setAttribute("usuario", matricula);
+                    session.setAttribute("nombre", contraseña);
+                    
                     response.setContentType("text/plain");
                     response.setCharacterEncoding("UTF-8");
                     response.getWriter().write(master);
             }   
             
             else{
+                
                 response.setContentType("text/plain");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write("Error");
@@ -95,15 +103,18 @@ public class CloginS extends HttpServlet {
             UsuarioAlumnoDAO al = new UsuarioAlumnoDAO();
             
             if(al.verificarUsuario(matricula, contraseña)){
-                    System.out.println(al.verificarUsuario(matricula, contraseña )+"VVVVVVVVVVVV");
-                    
+//                  System.out.println(al.verificarUsuario(matricula, contraseña )+"VVVVVVVVVVVV");
+//                    
                     session.setAttribute("usuario", matricula);
+                    session.setAttribute("nombre", contraseña);
+                    
                     response.setContentType("text/plain");
                     response.setCharacterEncoding("UTF-8");
                     response.getWriter().write(master);
             }
             
             else{
+                
                 response.setContentType("text/plain");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write("Error");

@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.Profesor;
 import modelo.UsuarioProfesorDAO;
 
@@ -35,10 +36,15 @@ public class servletactualizarprof extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
+       HttpSession session = request.getSession(true);
+       String usuario = (String)session.getAttribute("usuario");
+       String nombre = (String)session.getAttribute("nombre");
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             Profesor p=new Profesor();
-            p.setMatriculaProfesor(Long.valueOf(request.getParameter("matricula")));
+            System.out.println("El numero"+usuario);
+            p.setMatriculaProfesor(Long.parseLong(usuario));
             UsuarioProfesorDAO prof =new UsuarioProfesorDAO();
             p=prof.load(p);
             String pagina = null;
@@ -48,7 +54,7 @@ public class servletactualizarprof extends HttpServlet {
             pagina +="</head>";
             pagina +="<body>";
             pagina+="<form action=\"hacerupdateProf\" method=\"get\" >" + " <fieldset>"; 
-            pagina+="<legend>Datos Usuario</legend>";
+            pagina+="<legend>Datos de"+nombre+"</legend>";
             pagina+="matricula</br>"+p.getMatriculaProfesor()+" <input type=\"hidden\" name=\"matricula\""+"value=\""+p.getMatriculaProfesor()+"\""+">";
             pagina+="<br/>";
             pagina+="Nombre <br/>";
@@ -72,7 +78,8 @@ public class servletactualizarprof extends HttpServlet {
                     "</fieldset>\n" +
                     "<input type=\"submit\" value=\"Actualizar\">\n" +
                     "</form>";
-            
+            pagina +="<a href='/Practica1/vistas/ReProfesor.html'><input type ='button' value='Regresar'></a>";
+            pagina +="<a href='/Practica1/vistas/index.html'><input type ='button' value='Cerrar sesion'></a>";
             pagina +="</body>";
             pagina +="</html>";
             
