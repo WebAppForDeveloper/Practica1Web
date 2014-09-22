@@ -64,5 +64,17 @@ body {
 		text-align: center;
 		color:white;
 	}
-	
+        div#cerrar{
+            position: absolute; 
+            top: 180px; 
+            left: 1150px;
+        }
+	input#cerrar{
+		background: black;
+		border:3px solid #6c1a42;
+		padding:3px 40px;
+		border-radius:5px;
+		text-align: center;
+		color:white;
+	}
 	
