@@ -36,6 +36,10 @@
         <servlet-name>ControladorSession</servlet-name>
         <servlet-class>controlador.ControladorSession</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NewServlet</servlet-name>
+        <servlet-class>controlador.NewServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CloginS</servlet-name>
         <url-pattern>/CloginS</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>ControladorSession</servlet-name>
         <url-pattern>/ControladorSession</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewServlet</servlet-name>
+        <url-pattern>/NewServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
