@@ -8,16 +8,69 @@ and open the template in the editor.
     <head>
         <title>Registro Alumnos</title>
         <LINK href="../CSS/EstiloAlumno.css" rel="stylesheet" type="text/css"><link>
+        <link href="../CSS/bootstrap/bootstrap.css" rel="stylesheet" type="text/css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="../js/jquery/jquery-2.1.1.js"></script>
+        <script src="../CSS/bootstrap/bootstrap.js"></script>
     </head>
     <body>
-        <div id="encabezado">
-        <header> 
-            <br><h1>AUTENTICACIÓN ESCOM</h1>
-            <img id="ipn" src="../Imagenes/ipn.jpg">
-        </header></div>
+        
+       <div class="navbar navbar-inverse " role="navigation">
+      
+          
+        <div class="navbar-header ">
+            <a class="navbar-brand  " href="ReAdmin.html">Administrador</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              
+              <li><a href="ReAdmin.html">Perfil</a></li>
+              
+             <li class="dropdown active">
+			<a class="dropdown-toggle"data-toggle="dropdown"href="#">
+			Alumnos
+			<b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu">
+				<li><a href="registroAlumno.html">Registrar Alumno</a></li>
+				<li><a href="../VerAlumnosS">Ver Alumnos</a></li>
+				
+			</ul>
+		</li>
+                
+                <li class="dropdown">
+			<a class="dropdown-toggle"data-toggle="dropdown"href="#">
+			Profesores
+			<b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu">
+				<li><a href="registroProfesor.html">Registrar Profesor</a></li>
+				<li><a href="../VerProfesorS">Ver Profesores</a></li>
+				
+			</ul>
+		</li>
+                
+                 <li class="dropdown">
+			<a class="dropdown-toggle"data-toggle="dropdown"href="#">
+			Carreras
+			<b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu">
+				<li><a href="Crearcarrera.html">Crear Carrera</a></li>
+				
+				
+			</ul>
+		</li>
+                         
+       </ul>
+            <form class="navbar-form navbar-right" role="form" id="formulario" action="" method="post">
+            <input type="submit" class="btn btn-info btn-primary" id="nombre">
+          </form>
+        </div>
+        </div>
+        
+       
         <div id="body"><section>
         <form action="../servletAlumno" method="post" id="formulario">
             
