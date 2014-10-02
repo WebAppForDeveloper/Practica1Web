@@ -7,8 +7,9 @@ and open the template in the editor.
 <html>
     <head>
         <title>Registro Alumnos</title>
-        <LINK href="../CSS/EstiloAlumno.css" rel="stylesheet" type="text/css"><link>
+        
         <link href="../CSS/bootstrap/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/bootstrap/signin.css" rel="stylesheet" type="text/css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="../js/jquery/jquery-2.1.1.js"></script>
@@ -52,7 +53,7 @@ and open the template in the editor.
 		</li>
                 
                  <li class="dropdown">
-			<a class="dropdown-toggle"data-toggle="dropdown"href="#">
+			<a class="dropdown-toggle" data-toggle="dropdown"href="#">
 			Carreras
 			<b class="caret"></b>
 			</a>
@@ -71,58 +72,75 @@ and open the template in the editor.
         </div>
         
        
-        <div id="body"><section>
-        <form action="../servletAlumno" method="post" id="formulario">
-            
-                <label>Registro del Alumno</label><br>
-                <label>Introduzca sus datos para ser registrado:</label><br>
-              Matricula <br/>
-              <input type="text" name="matricula" />
-              <br/>
-              Nombre <br/>
-              <input type="text" name="nombre" />
-              <br/>
-              Apellido Paterno <br/>
-              <input type="text" name="paternoAlumno" />
-              <br/>
-              Apellido Materno <br/>
-              <input type="text" name="maternoAlumno"/>
-              <br/>
-              Fecha de Nacimiento <br/>
-              <input type="date" name="fechaNacimiento" />
-              <br/>
-              Calle<br/>
-              <input type="text" name="calle"/>
-              <br/>
-              Colonia <br/>
-              <input type="text" name="colonia" />
-              <br/>
-              Numero <br/>
-              <input type="text" name="numero" />
-              <br/>
-              Codigo Postal <br/>
-              <input type="text" name="cp" />
-              <br/>
-              Sexo<br/>
-              <input type="radio" name="tipo" value="M">Masculino<br>
-              <input type="radio" name="tipo" value="F">Femenino<br>
-              Correo Electronico <br/>
-              <input type="text" name="email" />
-              <br/>
-              Carrera<br/>
-              <input type="radio" name="carrera" value="1">ing.Sistemas Computacionales<br>
-              <input type="radio" name="carrera" value="2">Ing.en Computación<br>
-               <input type="radio" name="carrera" value="3">lic.en informatica<br>
-              <br/>
-            <input type="submit" value="Registrarse" id="enviar">
-            
-            </form>
-        </section></div> 
         
-         <div id="cerrar">
-             <a href="ReAdmin.html"><input type="button" value="Regresar" id="cerrar"></a>
-                 <a href="index.html"><input type="button" value="Cerrar session" id="cerrar"></a>
-        </div>
+            <div class="jumbotron boxlogin">
+            <form action="../servletAlumno" method="post" class="form-signin" role="form">
+            
+                <h2 class="form-signin-heading">Registrar alumno</h2>
+                <table>
+                    <tr>
+                        <td>Matricula </td>
+                        <td><input class="form-control" placeholder="Matricula" required="" autofocus="" type="text" name="matricula" /></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Nombre </td>
+                        <td><input class="form-control" type="text" name="nombre" placeholder="Nombre" required="" autofocus="" /></td>
+                    </tr>
+                    <tr>
+                        <td>Apellido Paterno </td>
+                        <td><input class="form-control" type="text" name="paternoAlumno" placeholder="Apellido Paterno" required="" autofocus=""/></td>
+                    </tr>
+                    <tr>
+                        <td>Apellido Materno</td>
+                        <td><input class="form-control" type="text" name="maternoAlumno" placeholder="Apellido Materno" required="" autofocus=""/></td>
+                    </tr>
+                    <tr>
+                        <td>Fecha de Nacimiento </td>
+                        <td><input class="form-control"  type="date" name="fechaNacimiento" required="" autofocus=""></td>
+                    </tr>
+                    <tr>
+                        <td>Calle</td>
+                        <td><input class="form-control" type="text" name="calle" placeholder="Calle" required="" autofocus=""/></td>
+                    </tr>
+                    <tr>  
+                        <td>Colonia </td>
+                        <td><input class="form-control" type="text" name="colonia" placeholder="Colonia" required="" autofocus=""/></td>
+                    </tr>
+                    <tr>
+                        <td>Numero </td>
+                        <td><input class="form-control" type="text" name="numero" placeholder="Numero" required="" autofocus=""/></td>
+                     
+                    </tr>
+                    <tr>
+                        <td>Codigo Postal</td>
+                        <td><input class="form-control" type="text" name="cp"required="" placeholder="Codigo Postal" autofocus=""/></td>
+                    </tr>
+                    <tr>
+                        <td>Sexo</td>
+                        <td><input class="form-control" type="radio" name="tipo" value="M"/>Masculino</td>
+                        <td><input  class="form-control" type="radio" name="tipo" value="F"/>Femenino</td>
+                    </tr>
+                    <tr>
+                        <td>Correo Electronico </td>
+                        <td><input class="form-control" type="email" name="email" placeholder="Correo@ipn.com.mx" required="" autofocus=""/></td>
+                    </tr>
+                    <tr>
+                        <td>Carrera</td>
+                        <td><input class="form-control" type="radio" name="carrera" value="1"/>ing.Sis Computacionales</td>
+                        <td><input class="form-control" type="radio" name="carrera" value="2"/>Ing.Computación</td>
+                         <td><input class="form-control" type="radio" name="carrera" value="3"/>lic.Informatica</td>
+                    <tr>
+
+                        <td><input type="submit" value="Registrarse" class="btn btn-lg btn-success"></td>
+                    </tr>
+            </table>
+            </form>
+        
+            </div>
+        
+        <div id="body"></div>
+      
         
     </body>
 </html>

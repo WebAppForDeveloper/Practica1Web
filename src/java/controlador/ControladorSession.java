@@ -34,6 +34,10 @@ public class ControladorSession extends HttpServlet {
        HttpSession session = request.getSession(true);
        String usuario = (String)session.getAttribute("usuario");
        String nombre = (String)session.getAttribute("nombre");
+       
+       response.setContentType("text/plain");
+       response.setCharacterEncoding("UTF-8");
+       response.getWriter().write(nombre);
 
     }
 
