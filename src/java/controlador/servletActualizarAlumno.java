@@ -40,15 +40,15 @@ public class servletActualizarAlumno extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         
-        HttpSession session = request.getSession(true);
-       String usuario = (String)session.getAttribute("usuario");
-       String nombre = (String)session.getAttribute("nombre");
+       // HttpSession session = request.getSession(true);
+       //String usuario = (String)session.getAttribute("usuario");
+       //String nombre = (String)session.getAttribute("nombre");
        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             Alumno a=new Alumno();
-            a.setMatricula(Long.valueOf(usuario));
+            a.setMatricula(Long.valueOf(request.getParameter("id")));
             UsuarioAlumnoDAO adao=new UsuarioAlumnoDAO();
             a=adao.load(a);
             System.out.println(a);
@@ -59,7 +59,7 @@ public class servletActualizarAlumno extends HttpServlet {
             pagina +="</head>";
             pagina +="<body>";
             pagina+="<form action=\"serhaceupdateusuario\" method=\"get\" >" + " <fieldset>"; 
-            pagina+="<legend>Datos de "+nombre+"</legend>";
+            pagina+="<legend>Datos de "+a.getNombre()+"</legend>";
             pagina+="matricula</br>"+a.getMatricula()+" <input type=\"hidden\" name=\"matricula\""+"value=\""+a.getMatricula()+"\""+">";
             pagina+="<br/>";
             pagina+="Nombre <br/>";
@@ -86,8 +86,8 @@ public class servletActualizarAlumno extends HttpServlet {
                     "</fieldset>\n" +
                     "<input type=\"submit\" value=\"Actualizar\">\n" +
                     "</form>";
-            pagina +="<a href='/Practica1/vistas/ReAlumno.html'><input type ='button' value='Regresar'></a>";
-            pagina +="<a href='/Practica1/vistas/index.html'><input type ='button' value='Cerrar sesion'></a>";
+            //pagina +="<a href='/Practica1/vistas/ReAlumno.html'><input type ='button' value='Regresar'></a>";
+            //pagina +="<a href='/Practica1/vistas/index.html'><input type ='button' value='Cerrar sesion'></a>";
             pagina +="</body>";
             pagina +="</html>";
             

@@ -52,6 +52,7 @@ public class serhaceupdateusuario extends HttpServlet {
             alumno.setSexo(request.getParameter("tipo"));
             alumno.setEmail(request.getParameter("email"));
             UsuarioAlumnoDAO adao=new UsuarioAlumnoDAO();
+            
             adao.update(alumno);
         }
     }

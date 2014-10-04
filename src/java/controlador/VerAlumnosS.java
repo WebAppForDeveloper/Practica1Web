@@ -52,6 +52,7 @@ public class VerAlumnosS extends HttpServlet {
          String codigoPostal;
          String sexo;
          String email;
+         String enlace;
          
         String enlaceG;
         int id;
@@ -67,8 +68,8 @@ public class VerAlumnosS extends HttpServlet {
             pagina +="<head>";
             
             pagina +=" <link href=\"CSS/bootstrap/bootstrap.css\" rel=\"stylesheet\" type=\"text/css\">";   
-            pagina +=" <script src=\"../js/jquery/jquery-2.1.1.js\"></script>"; 
-            pagina +=" <script src=\"../CSS/bootstrap/bootstrap.js\"></script>"; 
+            pagina +=" <script src=\"js/jquery/jquery-2.1.1.js\"></script>"; 
+            pagina +=" <script src=\"CSS/bootstrap/bootstrap.js\"></script>"; 
             
             pagina +="<title>userlist</title>";  
             pagina +="</head>";
@@ -78,12 +79,12 @@ public class VerAlumnosS extends HttpServlet {
 "      \n" +
 "          \n" +
 "        <div class=\"navbar-header \">\n" +
-"            <a class=\"navbar-brand  \" href=\"ReAdmin.html\">Administrador</a>\n" +
+"            <a class=\"navbar-brand  \" href=\"vistas/ReAdmin.html\">Administrador</a>\n" +
 "        </div>\n" +
 "        <div class=\"collapse navbar-collapse\">\n" +
 "            <ul class=\"nav navbar-nav\">\n" +
 "              \n" +
-"              <li><a href=\"ReAdmin.html\">Perfil</a></li>\n" +
+"              <li><a href=\"vistas/ReAdmin.html\">Perfil</a></li>\n" +
 "              \n" +
 "             <li class=\"dropdown active\">\n" +
 "			<a class=\"dropdown-toggle\"data-toggle=\"dropdown\"href=\"#\">\n" +
@@ -91,8 +92,8 @@ public class VerAlumnosS extends HttpServlet {
 "			<b class=\"caret\"></b>\n" +
 "			</a>\n" +
 "			<ul class=\"dropdown-menu\">\n" +
-"				<li><a href=\"registroAlumno.html\">Registrar Alumno</a></li>\n" +
-"				<li><a href=\"../VerAlumnosS\">Ver Alumnos</a></li>\n" +
+"				<li><a href=\"vistas/registroAlumno.html\">Registrar Alumno</a></li>\n" +
+"				<li><a href=\"VerAlumnosS\">Ver Alumnos</a></li>\n" +
 "				\n" +
 "			</ul>\n" +
 "		</li>\n" +
@@ -103,8 +104,8 @@ public class VerAlumnosS extends HttpServlet {
 "			<b class=\"caret\"></b>\n" +
 "			</a>\n" +
 "			<ul class=\"dropdown-menu\">\n" +
-"				<li><a href=\"registroProfesor.html\">Registrar Profesor</a></li>\n" +
-"				<li><a href=\"../VerProfesorS\">Ver Profesores</a></li>\n" +
+"				<li><a href=\"vistas/registroProfesor.html\">Registrar Profesor</a></li>\n" +
+"				<li><a href=\"VerProfesorS\">Ver Profesores</a></li>\n" +
 "				\n" +
 "			</ul>\n" +
 "		</li>\n" +
@@ -115,7 +116,7 @@ public class VerAlumnosS extends HttpServlet {
 "			<b class=\"caret\"></b>\n" +
 "			</a>\n" +
 "			<ul class=\"dropdown-menu\">\n" +
-"				<li><a href=\"Crearcarrera.html\">Crear Carrera</a></li>\n" +
+"				<li><a href=\"vistas/Crearcarrera.html\">Crear Carrera</a></li>\n" +
 "				\n" +
 "				\n" +
 "			</ul>\n" +
@@ -164,6 +165,8 @@ public class VerAlumnosS extends HttpServlet {
                 pagina += "<td>" +codigoPostal+"</td>";
                 pagina += "<td>" +sexo+"</td>";
                 pagina += "<td>" +email+"</td>";
+                enlace = "<td><a href='servletActualizarAlumno?id="+matricula+"'>"+"Actualizar"+"</a></td>";
+                pagina += enlace;
                 pagina += "</tr>";
                 
             }
