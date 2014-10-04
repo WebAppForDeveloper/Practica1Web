@@ -40,7 +40,7 @@
   border-top-right-radius: 0;
 }
 .boxlogin{
-    width: 40%;
+    width: 38%;
     height: auto;
     background:white;
     position: absolute;  
@@ -52,4 +52,21 @@
     
 }
 
+#body {
+		width: 1500;
+		height: 520px;
+		margin: auto;
+		margin-top: 10px;
+		background: url(../../Imagenes/patio2.jpg) no-repeat 100% 30%; 
+              
+}
+
+#body2{
+                width: auto;
+		height: 520px;
+		margin: auto;
+		margin-top: 0px;
+                margin-bottom: 100px;
+		background: url(../../Imagenes/HechoenESCOM.png) no-repeat 100% -10%;
+}
 

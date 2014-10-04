@@ -7,56 +7,173 @@ and open the template in the editor.
 <html>
     <head>
         <title>Registro Profesor</title>
-        <LINK href="../CSS/Estilo.css" rel="stylesheet" type="text/css"><link>
+        <link href="../CSS/bootstrap/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <script src="../js/jquery/jquery-2.1.1.js"></script>
+        <script src="../CSS/bootstrap/bootstrap.js"></script>
+        <link href="../CSS/bootstrap/signin.css" rel="stylesheet" type="text/css"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
     </head>
     <body>
-        <div id="encabezado">
-        <header> 
-            <br><h1>AUTENTICACIÓN ESCOM</h1>
-            <img id="ipn" src="../Imagenes/ipn.jpg">
-        </header></div>
-        <div id="body"><section>
-        <form action="../regProfesor" method="post" id="formulario">
-            
-                <label>Registro del Profesor</label><br>
-                <label>Introduzca sus datos para ser registrado:</label><br>
-              Matricula <br/>
-              <input type="text" name="matriculaProfesor" />
-              <br/>
-              Nombre <br/>
-              <input type="text" name="nombre" />
-              <br/>
-              Apellido Paterno <br/>
-              <input type="text" name="paterno" />
-              <br/>
-              Apellido Materno <br/>
-              <input type="text" name="materno"/>
-              <br/>
-              Fecha de Nacimiento <br/>
-              <input type="date" name="fechaNacimiento" />
-              <br/>
-              Calle<br/>
-              <input type="text" name="calle"/>
-              <br/>
-              Colonia <br/>
-              <input type="text" name="colonia" />
-              <br/>
-              Sexo<br/>
-              <input type="radio" name="tipo" value="M">Masculino<br>
-              <input type="radio" name="tipo" value="F">Femenino<br>
-              Correo Electronico <br/>
-              <input type="text" name="correro" />
-              <br/>
-              
-              <input type="submit" value="Registrarse" id="enviar">
-            
-            </form>
-        </section></div>  
-          <div id="cerrar">
-             <a href="ReAdmin.html"><input type="button" value="Regresar"></a>
-            <a href="index.html"><input type="button" value="Cerrar session"></a>
+        
+<!-- MenuBar                                                                                -->
+    <div class="navbar navbar-inverse " role="navigation">
+      
+          
+        <div class="navbar-header ">
+            <a class="navbar-brand  " href="ReAdmin.html">Administrador</a>
         </div>
+        
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              
+              <li><a href="ReAdmin.html">Perfil</a></li>
+              
+             <li class="dropdown">
+			<a class="dropdown-toggle"data-toggle="dropdown"href="#">
+			Alumnos
+			<b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu">
+				<li><a href="registroAlumno.html">Registrar Alumno</a></li>
+				<li><a href="../VerAlumnosS">Ver Alumnos</a></li>
+				
+			</ul>
+		</li>
+                
+                <li class="dropdown active">
+			<a class="dropdown-toggle"data-toggle="dropdown"href="#">
+			Profesores
+			<b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu">
+				<li><a href="registroProfesor.html">Registrar Profesor</a></li>
+				<li><a href="../VerProfesorS">Ver Profesores</a></li>
+				
+			</ul>
+		</li>
+                
+                 <li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown"href="#">
+			Carreras
+			<b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu">
+				<li><a href="Crearcarrera.html">Crear Carrera</a></li>
+				
+				
+			</ul>
+		</li>
+                         
+       </ul>
+            <form class="navbar-form navbar-right" role="form" id="formulario" action="" method="post">
+            <input type="submit" class="btn btn-info btn-primary" id="nombre">
+          </form>
+        </div>
+        </div>
+
+
+       
+        
+<!--    Formulario                                                                          -->     
+      <div class="jumbotron boxlogin">
+        <form action="../regProfesor" method="post" id="formu" class="form-signin">
+            
+               <h2 class="form-signin-heading">Registrar Profesor</h2>
+               
+               <table>
+                           <tr>
+                               <td>Matricula</td> 
+                               <td><input type="text" name="matriculaProfesor" required="" placeholder="Matricula" class="form-control"/></td>
+
+                           </tr>
+                           <tr>
+
+                                <td>Nombre</td> 
+                                <td><input type="text" name="nombre"required="" placeholder="Nombre" class="form-control" /></td>
+
+                           </tr>
+                           <tr>
+
+                                <td> Apellido Paterno </td>
+                                <td><input type="text" name="paterno" required="" placeholder="Apellido Paterno" class="form-control" /></td>
+
+                           </tr>
+                           <tr>
+
+                                <td>Apellido Materno </td>
+                                <td><input type="text" name="materno" required="" placeholder="Apellido Materno" class="form-control"/></td>
+
+                           </tr>
+                           <tr>
+
+                                <td>Fecha de Nacimiento </td>
+                                <td><input type="date" name="fechaNacimiento" required="" class="form-control"  /></td>
+
+                           </tr>
+                           <tr>
+
+                                <td>Calle</td>
+                                <td><input type="text" name="calle" required="" placeholder="Calle" class="form-control"/></td>
+
+                           </tr>
+                           <tr>
+                                <td>Colonia </td>
+                                <td><input type="text" name="colonia"required="" placeholder="Colonia"  class="form-control"/></td>
+
+                           </tr>
+                           <tr>
+
+                               <td>Sexo</td>
+                                <td><input type="radio" name="tipo" value="M" class="form-control">Masculino<br></td>
+                               <td> <input type="radio" name="tipo" value="F" class="form-control">Femenino<br></td>
+
+                           </tr>
+                           <tr>
+
+                                <td>Correo Electronico </td>
+                                <td><input type="email" name="correro" required="" placeholder="Ejemplo@ipn.com"  class="form-control"/></td>
+
+                           </tr>
+                           <tr>
+
+                                <td><input type="submit" value="Registrarse" class="btn btn-lg btn-success"></td>
+
+                           </tr>
+            </table>
+            </form>
+        </div>
+
+
+
+<!-- Otros                                                                                -->
+<div id="body"></div>
+<div id="body2"></div>    
+
     </body>
+    
+     <script>
+                    $('document').ready(function (){
+                        $('#formulario').on('submit',function (e){
+                           
+                              e.preventDefault();
+                              $.ajax({
+                                    type: "post",
+                                    url: "../regProfesor",
+                                    data: $('#formulario').serialize(),
+                                    success: function (data) {
+                                        //var data;
+                                        if(data == 'echo')
+                                            alert("Registro exitoso");
+                                        else
+                                            alert("Registro fallido");
+                                        
+                                        
+                                    }
+                                    
+                              });
+                        });
+                });
+                </script>
 </html>

@@ -17,6 +17,8 @@ and open the template in the editor.
     </head>
     <body>
         
+<!--    MenuBar                                                                     -->        
+
        <div class="navbar navbar-inverse " role="navigation">
       
           
@@ -72,9 +74,9 @@ and open the template in the editor.
         </div>
         
        
-        
+<!--         Formulario                                                                     -->           
             <div class="jumbotron boxlogin">
-            <form action="../servletAlumno" method="post" class="form-signin" role="form">
+                <form action="../servletAlumno" method="post" class="form-signin" role="form" id="formu">
             
                 <h2 class="form-signin-heading">Registrar alumno</h2>
                 <table>
@@ -127,19 +129,45 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Carrera</td>
-                        <td><input class="form-control" type="radio" name="carrera" value="1"/>ing.Sis Computacionales</td>
-                        <td><input class="form-control" type="radio" name="carrera" value="2"/>Ing.Computación</td>
-                         <td><input class="form-control" type="radio" name="carrera" value="3"/>lic.Informatica</td>
+                        <td><select name=Tipo value="Tipo De Usuario" class="form-control">
+                            <option name=uno value="1"> Ing. En Sitemas Computacionales </option>
+                            <option name=dos value='2'> Ing Computacion </option>
+                            <option name=tres value='3'> lic.Informatica </option></td>
+                    </tr>
+                    
                     <tr>
-
-                        <td><input type="submit" value="Registrarse" class="btn btn-lg btn-success"></td>
+                            <td><input type="submit" value="Registrarse" class="btn btn-lg btn-success"></td>
                     </tr>
             </table>
             </form>
         
             </div>
-        
+<!--    Imagenes                                                                     -->           
         <div id="body"></div>
+        <div id="body2"></div>
+<!--    javascript                                                                     -->           
+        <script>
+                    $('document').ready(function (){
+                        $('#formu').on('submit',function (e){
+                           
+                              e.preventDefault();
+                              $.ajax({
+                                    type: "post",
+                                    url: "../servletAlumno",
+                                    data: $('#formulario').serialize(),
+                                    success: function (data) {
+                                        //var data;
+                                      if(data == 'echo')  
+                                          alert("Se ha regisrado correctamente"); 
+                                      
+                                      else
+                                          alert("Error en alguno de los datos");
+                                    }
+                                    
+                              });
+                        });
+                });
+                </script>
       
         
     </body>
