@@ -68,14 +68,18 @@ public class servletAlumno extends HttpServlet {
             udao.create(alumno);
             
             Mail mail = new Mail();
-            String asunto="Bienvenido al sistema";
-                String texto="Hola";
+            String asunto="Bienvenido al sistema\n";
+                String texto="Hola \n";
                 texto+=alumno.getNombre();
                 texto+=alumno.getPaternoAlumno();
-                texto+="tu contraseña es:";
+                texto+="tu contraseña es:  \n";
                 texto+=alumno.getNombre();
                 mail.enviarMail(alumno.getEmail(),asunto, texto);
-            response.sendRedirect("/Practica1/index.html");
+            //metodo ajax
+                
+       response.setContentType("text/plain");
+       response.setCharacterEncoding("UTF-8");
+       response.getWriter().write("echo");
         }
     }
 

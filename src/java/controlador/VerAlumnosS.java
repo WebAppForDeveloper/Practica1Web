@@ -65,11 +65,76 @@ public class VerAlumnosS extends HttpServlet {
             pagina="<!DOCTYPE html>";
             pagina +="<html>";
             pagina +="<head>";
-            pagina +="<title>userlist</title>";            
+            
+            pagina +=" <link href=\"CSS/bootstrap/bootstrap.css\" rel=\"stylesheet\" type=\"text/css\">";   
+            pagina +=" <script src=\"../js/jquery/jquery-2.1.1.js\"></script>"; 
+            pagina +=" <script src=\"../CSS/bootstrap/bootstrap.js\"></script>"; 
+            
+            pagina +="<title>userlist</title>";  
             pagina +="</head>";
             pagina +="<body>";
+            
+            pagina +=" <div class=\"navbar navbar-inverse \" role=\"navigation\">\n" +
+"      \n" +
+"          \n" +
+"        <div class=\"navbar-header \">\n" +
+"            <a class=\"navbar-brand  \" href=\"ReAdmin.html\">Administrador</a>\n" +
+"        </div>\n" +
+"        <div class=\"collapse navbar-collapse\">\n" +
+"            <ul class=\"nav navbar-nav\">\n" +
+"              \n" +
+"              <li><a href=\"ReAdmin.html\">Perfil</a></li>\n" +
+"              \n" +
+"             <li class=\"dropdown active\">\n" +
+"			<a class=\"dropdown-toggle\"data-toggle=\"dropdown\"href=\"#\">\n" +
+"			Alumnos\n" +
+"			<b class=\"caret\"></b>\n" +
+"			</a>\n" +
+"			<ul class=\"dropdown-menu\">\n" +
+"				<li><a href=\"registroAlumno.html\">Registrar Alumno</a></li>\n" +
+"				<li><a href=\"../VerAlumnosS\">Ver Alumnos</a></li>\n" +
+"				\n" +
+"			</ul>\n" +
+"		</li>\n" +
+"                \n" +
+"                <li class=\"dropdown\">\n" +
+"			<a class=\"dropdown-toggle\"data-toggle=\"dropdown\"href=\"#\">\n" +
+"			Profesores\n" +
+"			<b class=\"caret\"></b>\n" +
+"			</a>\n" +
+"			<ul class=\"dropdown-menu\">\n" +
+"				<li><a href=\"registroProfesor.html\">Registrar Profesor</a></li>\n" +
+"				<li><a href=\"../VerProfesorS\">Ver Profesores</a></li>\n" +
+"				\n" +
+"			</ul>\n" +
+"		</li>\n" +
+"                \n" +
+"                 <li class=\"dropdown\">\n" +
+"			<a class=\"dropdown-toggle\" data-toggle=\"dropdown\"href=\"#\">\n" +
+"			Carreras\n" +
+"			<b class=\"caret\"></b>\n" +
+"			</a>\n" +
+"			<ul class=\"dropdown-menu\">\n" +
+"				<li><a href=\"Crearcarrera.html\">Crear Carrera</a></li>\n" +
+"				\n" +
+"				\n" +
+"			</ul>\n" +
+"		</li>\n" +
+"                         \n" +
+"       </ul>\n" +
+"            <form class=\"navbar-form navbar-right\" role=\"form\" id=\"formulario\" action=\"\" method=\"post\">\n" +
+"            <input type=\"submit\" class=\"btn btn-info btn-primary\" id=\"nombre\">\n" +
+"          </form>\n" +
+"        </div>\n" +
+"        </div>\n" +
+"        ";
+//          Tablas            
+            
             pagina +="<h1>Lista de Alumnos </h1>";
-            pagina +="<table>";
+            pagina += "<div class='table-responsive'>";
+            pagina +="<table class ='table table-striped'>";
+            pagina +="<thead> <tr> <th>Matricula</th> <th>Nombre</th> <th>Apellido Paterno</th> <th>Apellido Materno</th> <th>Fecha de nacimiento</th> <th>Calle</th> <th>Colonia</th> <th>Numero</th> <th>Codigo Postal</th> <th>Sexo</th> <th>E-mail</th>  </tr> </thead>";
+            pagina += "<tbody>";
             ls = c.loadAll();
             for(int i = 0; i<ls.size();i++){
                 Alumno lu= (Alumno)(ls.get(i));
@@ -102,9 +167,11 @@ public class VerAlumnosS extends HttpServlet {
                 pagina += "</tr>";
                 
             }
-            enlaceG = "<a href='/Practica1/vistas/ReAlumno.html'>"+"<input type ='button' value='Regresar'"+"</a>";
+            pagina += "</tbody>";
+            pagina +="</div>";
+            //enlaceG = "<a href='/Practica1/vistas/ReAlumno.html'>"+"<input type ='button' value='Regresar'"+"</a>";
             pagina +="<table>";
-            pagina += enlaceG;
+            //pagina += enlaceG;
             pagina +="</body>";
             pagina +="</html>";
             

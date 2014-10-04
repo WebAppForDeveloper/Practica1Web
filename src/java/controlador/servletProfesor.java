@@ -65,7 +65,11 @@ public class servletProfesor extends HttpServlet {
                 texto+="tu contraseña es:";
                 texto+=u.getNombre();
                 mail.enviarMail(u.getEmail(),asunto, texto);
-            response.sendRedirect("/Practica1/index.html");
+            
+                
+                 response.setContentType("text/plain");
+       response.setCharacterEncoding("UTF-8");
+       response.getWriter().write("echo");
         }
     }
 

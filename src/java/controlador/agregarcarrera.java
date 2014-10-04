@@ -44,7 +44,9 @@ public class agregarcarrera extends HttpServlet {
             c.setNombre(request.getParameter("nombre"));
             c.setDuración(Integer.parseInt(request.getParameter("duracion")));
             cdao.create(c);
-            response.sendRedirect("vercarreras");
+             response.setContentType("text/plain");
+       response.setCharacterEncoding("UTF-8");
+       response.getWriter().write("echo");
         }
     }
 
