@@ -129,7 +129,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td>Carrera</td>
-                        <td><select name=Tipo value="Tipo De Usuario" class="form-control">
+                        <td><select name=carrera value="Tipo De Usuario" class="form-control">
                             <option name=uno value="1"> Ing. En Sitemas Computacionales </option>
                             <option name=dos value='2'> Ing Computacion </option>
                             <option name=tres value='3'> lic.Informatica </option></td>
@@ -148,13 +148,31 @@ and open the template in the editor.
 <!--    javascript                                                                     -->           
         <script>
                     $('document').ready(function (){
+                        
+//                  Cargar la session                        
+                     
+                        
+                              $.ajax({
+                                    type: "post",
+                                    url: "../ControladorSession",
+                                    success: function (data) {
+                                        //var data;
+                                        $('#nombre').attr('value',data);
+                                    }
+                                    
+                              });
+                        
+                
+                        
+//              Evento enviar datos formulario
+                        
                         $('#formu').on('submit',function (e){
                            
                               e.preventDefault();
                               $.ajax({
                                     type: "post",
                                     url: "../servletAlumno",
-                                    data: $('#formulario').serialize(),
+                                    data: $('#formu').serialize(),
                                     success: function (data) {
                                         //var data;
                                       if(data == 'echo')  

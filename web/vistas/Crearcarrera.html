@@ -104,6 +104,19 @@ and open the template in the editor.
     
      <script>
                     $('document').ready(function (){
+                        
+                        $.ajax({
+                                    type: "post",
+                                    url: "../ControladorSession",
+                                    success: function (data) {
+                                        //var data;
+                                        $('#nombre').attr('value',data);
+                                    }
+                                    
+                              });
+                        
+                        
+                        
                         $('#formulario').on('submit',function (e){
                            
                               e.preventDefault();

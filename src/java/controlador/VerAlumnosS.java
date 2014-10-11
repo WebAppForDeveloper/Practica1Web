@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.Alumno;
 import modelo.UsuarioAdminDAO;
 import modelo.UsuarioAlumnoDAO;
@@ -58,6 +59,11 @@ public class VerAlumnosS extends HttpServlet {
         int id;
         String pagina;
         List ls;
+        
+//      Sesssiones mapping
+        
+       HttpSession session = request.getSession(true);
+       String nameSession = (String)session.getAttribute("nombre");
         
         
         response.setContentType("text/html;charset=UTF-8");
@@ -124,7 +130,7 @@ public class VerAlumnosS extends HttpServlet {
 "                         \n" +
 "       </ul>\n" +
 "            <form class=\"navbar-form navbar-right\" role=\"form\" id=\"formulario\" action=\"\" method=\"post\">\n" +
-"            <input type=\"submit\" class=\"btn btn-info btn-primary\" id=\"nombre\">\n" +
+"            <input type=\"submit\" class=\"btn btn-info btn-primary\" id=\"nombre\" value="+"'"+nameSession+"'"+">\n" +
 "          </form>\n" +
 "        </div>\n" +
 "        </div>\n" +

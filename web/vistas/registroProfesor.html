@@ -155,13 +155,29 @@ and open the template in the editor.
     
      <script>
                     $('document').ready(function (){
+ 
+//                      Cargar session                            
+                              $.ajax({
+                                    type: "post",
+                                    url: "../ControladorSession",
+                                    success: function (data) {
+                                        //var data;
+                                        $('#nombre').attr('value',data);
+                                    }
+                                    
+                              });
+                        
+                
+                        
+                        
+//                      Envio de datos                         
                         $('#formulario').on('submit',function (e){
                            
                               e.preventDefault();
                               $.ajax({
                                     type: "post",
                                     url: "../regProfesor",
-                                    data: $('#formulario').serialize(),
+                                    data: $('#formu').serialize(),
                                     success: function (data) {
                                         //var data;
                                         if(data == 'echo')
